@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Android Support Things"
-include(":app")
- 
+include(":core-ui")
+include(":core")
