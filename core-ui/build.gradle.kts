@@ -14,7 +14,7 @@ val props = Properties().apply {
 
 android {
     namespace = "com.dezdeqness.core.ui"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

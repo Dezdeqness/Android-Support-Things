@@ -4,7 +4,6 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
     id("maven-publish")
 }
 
@@ -14,7 +13,7 @@ val props = Properties().apply {
 
 android {
     namespace = "com.dezdeqness.core"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -66,7 +65,5 @@ dependencies {
 
     implementation(libs.androidx.test.junit)
     implementation(libs.androidx.test.espresso)
-    implementation(libs.dagger.dagger)
-    ksp(libs.dagger.compilier)
 
 }
