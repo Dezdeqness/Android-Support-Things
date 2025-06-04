@@ -23,8 +23,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     buildFeatures {
@@ -41,7 +41,7 @@ afterEvaluate {
                 }
                 groupId = "com.dezdeqness.support"
                 artifactId = "core-ui"
-                version = "0.1.0"
+                version = "0.2.0"
             }
 
             repositories {
