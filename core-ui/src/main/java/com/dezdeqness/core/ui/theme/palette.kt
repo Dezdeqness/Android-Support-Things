@@ -5,16 +5,65 @@ package com.dezdeqness.core.ui.theme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+object LightColors {
+    val Primary = Color(0xFFFF70A6)
+    val PrimaryVariant = Color(0xFFE75890)
+    val Secondary = Color(0xFF84E0CB)
+    val Background = Color(0xFFFFF9FC)
+    val Surface = Color(0xFFFFFFFF)
+    val SurfaceVariant = Color(0xFFF2E8F5)
+    val Border = Color(0xFFE0E0E0)
+    val OnPrimary = Color.White
+    val OnSecondary = Color(0xFF00332D)
+    val OnBackground = Color(0xFF1C1B1F)
+    val OnSurface = Color(0xFF313033)
+    val Error = Color(0xFFFF5C5C)
+    val Success = Color(0xFF58C186)
+    val Warning = Color(0xFFFFD25F)
+    val TextPrimary = Color(0xFF1C1B1F)
+    val TextSecondary = Color(0xFF5C5C66)
+    val TextDisabled = Color(0xFF9E9EA7)
+    val Ripple = Color(0x1F000000)
+    val Accent = Color(0xFFB48BFF)
+}
+
+object DarkColors {
+    val Primary = Color(0xFFFF9DCB)
+    val PrimaryVariant = Color(0xFFC6447F)
+    val Secondary = Color(0xFF66F8E3)
+    val Background = Color(0xFF121212)
+    val Surface = Color(0xFF1E1E1E)
+    val SurfaceVariant = Color(0xFF3B2F41)
+    val Border = Color(0xFF3D3D3D)
+    val OnPrimary = Color(0xFF1B141F)
+    val OnSecondary = Color(0xFF00221D)
+    val OnBackground = Color(0xFFE5E5E5)
+    val OnSurface = Color(0xFFCACACA)
+    val Error = Color(0xFFFF8A80)
+    val Success = Color(0xFF81D4A3)
+    val Warning = Color(0xFFFFCA69)
+    val TextPrimary = Color(0xFFEDEDED)
+    val TextSecondary = Color(0xFFA5A5AA)
+    val TextDisabled = Color(0xFF5E5E66)
+    val Ripple = Color(0x33FFFFFF)
+    val Accent = Color(0xFFD1B3FF)
+}
 
 val red50 = Color(0xFFFFEBEE)
 val red100 = Color(0xFFFFCDD2)
@@ -344,4 +393,91 @@ fun PreviewBlackAndWhitePalette() {
             white,
         ),
     )
+}
+
+data class NamedColor(val name: String, val color: Color)
+
+val lightColors = listOf(
+    NamedColor("Primary", LightColors.Primary),
+    NamedColor("PrimaryVariant", LightColors.PrimaryVariant),
+    NamedColor("Secondary", LightColors.Secondary),
+    NamedColor("Background", LightColors.Background),
+    NamedColor("Surface", LightColors.Surface),
+    NamedColor("SurfaceVariant", LightColors.SurfaceVariant),
+    NamedColor("Border", LightColors.Border),
+    NamedColor("OnPrimary", LightColors.OnPrimary),
+    NamedColor("OnSecondary", LightColors.OnSecondary),
+    NamedColor("OnBackground", LightColors.OnBackground),
+    NamedColor("OnSurface", LightColors.OnSurface),
+    NamedColor("Error", LightColors.Error),
+    NamedColor("Success", LightColors.Success),
+    NamedColor("Warning", LightColors.Warning),
+    NamedColor("TextPrimary", LightColors.TextPrimary),
+    NamedColor("TextSecondary", LightColors.TextSecondary),
+    NamedColor("TextDisabled", LightColors.TextDisabled),
+    NamedColor("Ripple", LightColors.Ripple),
+    NamedColor("Accent", LightColors.Accent),
+)
+
+val darkColors = listOf(
+    NamedColor("Primary", DarkColors.Primary),
+    NamedColor("PrimaryVariant", DarkColors.PrimaryVariant),
+    NamedColor("Secondary", DarkColors.Secondary),
+    NamedColor("Background", DarkColors.Background),
+    NamedColor("Surface", DarkColors.Surface),
+    NamedColor("SurfaceVariant", DarkColors.SurfaceVariant),
+    NamedColor("Border", DarkColors.Border),
+    NamedColor("OnPrimary", DarkColors.OnPrimary),
+    NamedColor("OnSecondary", DarkColors.OnSecondary),
+    NamedColor("OnBackground", DarkColors.OnBackground),
+    NamedColor("OnSurface", DarkColors.OnSurface),
+    NamedColor("Error", DarkColors.Error),
+    NamedColor("Success", DarkColors.Success),
+    NamedColor("Warning", DarkColors.Warning),
+    NamedColor("TextPrimary", DarkColors.TextPrimary),
+    NamedColor("TextSecondary", DarkColors.TextSecondary),
+    NamedColor("TextDisabled", DarkColors.TextDisabled),
+    NamedColor("Ripple", DarkColors.Ripple),
+    NamedColor("Accent", DarkColors.Accent),
+)
+
+@Composable
+fun ColorListPreview(title: String, colors: List<NamedColor>) {
+    Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+        Text(text = title, style = MaterialTheme.typography.titleLarge)
+        Spacer(modifier = Modifier.height(8.dp))
+        colors.forEach { colorItem ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp)
+                    .height(48.dp)
+                    .background(colorItem.color),
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
+            ) {
+                Text(
+                    text = colorItem.name,
+                    modifier = Modifier.padding(start = 16.dp).weight(1f),
+                    color = if (colorItem.color.luminance() < 0.5f) Color.White else Color.Black
+                )
+                Text(
+                    text = "#${colorItem.color.value.toULong().toString(16).uppercase().take(8)}",
+                    modifier = Modifier.padding(end = 16.dp),
+                    color = if (colorItem.color.luminance() < 0.5f) Color.White else Color.Black
+                )
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightAnimeColorsPreview() {
+    ColorListPreview("Light Anime Colors", lightColors)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkAnimeColorsPreview() {
+    ColorListPreview("Dark Anime Colors", darkColors)
 }

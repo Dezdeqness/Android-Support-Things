@@ -1,8 +1,9 @@
-package com.dezdeqness.core.ui.views
+package com.dezdeqness.core.ui.views.textfield
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.OutlinedTextField
@@ -27,22 +28,21 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dezdeqness.core.ui.theme.AppTheme
-
-private val DEFAULT_TEXT_SIZE = 18.sp
 
 @Composable
 fun SearchTextField(
     modifier: Modifier = Modifier,
     state: SearchState,
     textStyle: TextStyle = AppTheme.typography.titleMedium.copy(
-        fontSize = DEFAULT_TEXT_SIZE,
+        fontSize = 18.sp,
         color = AppTheme.colors.textPrimary,
     ),
     onQueryChanged: (String) -> Unit,
-    containerColor: Color = AppTheme.colors.onPrimary,
-    shape: Shape = AppTheme.shapes.large,
+    containerColor: Color = AppTheme.colors.surfaceVariant,
+    shape: Shape = RoundedCornerShape(16.dp),
     placeholder: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -140,3 +140,4 @@ class SearchState {
 fun rememberSearchState() = rememberSaveable(saver = SearchState.Saver) {
     SearchState()
 }
+
