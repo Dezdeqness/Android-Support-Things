@@ -1,23 +1,22 @@
 [versions]
-coreVersion = "1.15.0"
+coreVersion = "1.16.0"
 appCompatVersion = "1.7.0"
 coroutinesVersion = "1.10.1"
-lifecycleVersion = "2.8.7"
+lifecycleVersion = "2.9.0"
 materialVersion = "1.12.0"
-fragmentVersion = "1.8.5"
-collectionVersion = "1.4.5"
-junitVersion = "5.10.2"
+fragmentVersion = "1.8.7"
+collectionVersion = "1.5.0"
+junitVersion = "5.12.0"
 androidJunitVersion = "1.2.1"
 espressoVersion = "3.6.1"
-coilVersion = "2.6.0"
-composeActivityVersion = "1.9.3"
-composeBomVersion = "2024.12.01"
+coilVersion = "2.7.0"
+composeActivityVersion = "1.10.1"
+composeBomVersion = "2025.05.01"
 
 gradleVersion = "8.4.2"
 
 androidVersion = "8.2.2"
 kotlinAndroidVersion = "2.1.0"
-firebaseCrashlyticsGradleVersion = "3.0.2"
 
 kotlinCompilerExtensionVersion = "1.5.14"
 
@@ -44,6 +43,7 @@ androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoVersion" }
 
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coilVersion" }
 
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "composeActivityVersion" }
 

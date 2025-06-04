@@ -64,7 +64,8 @@ dependencies {
     implementation(libs.androidx.core)
 
     implementation(libs.androidx.appcompat)
-
+    implementation(libs.coil.compose)
+    implementation(libs.coil)
     testImplementation(libs.junit.api)
     testImplementation(libs.junit.engine)
     implementation(libs.androidx.test.junit)
