@@ -27,6 +27,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
+    kotlinOptions {
+        jvmTarget = "21"
+    }
+
     buildFeatures {
         compose = true
     }
@@ -41,7 +45,7 @@ afterEvaluate {
                 }
                 groupId = "com.dezdeqness.support"
                 artifactId = "core-ui"
-                version = "0.2.0"
+                version = "0.2.1"
             }
 
             repositories {

@@ -15,10 +15,11 @@ composeBomVersion = "2025.05.01"
 
 gradleVersion = "8.4.2"
 
-androidVersion = "8.2.2"
+androidVersion = "8.10.1"
 kotlinAndroidVersion = "2.1.0"
 
 kotlinCompilerExtensionVersion = "1.5.14"
+junit = "4.13.2"
 
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "coreVersion" }
@@ -56,6 +57,9 @@ androidx-compose-material = { group = "androidx.compose.material3", name = "mate
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "androidVersion" }

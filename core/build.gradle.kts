@@ -26,6 +26,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
+    kotlinOptions {
+        jvmTarget = "21"
+    }
 }
 
 afterEvaluate {
@@ -37,7 +40,7 @@ afterEvaluate {
                 }
                 groupId = "com.dezdeqness.support"
                 artifactId = "core"
-                version = "0.1.0"
+                version = "0.1.1"
             }
 
             repositories {
