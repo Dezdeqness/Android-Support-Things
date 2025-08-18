@@ -140,4 +140,3 @@ class SearchState {
 fun rememberSearchState() = rememberSaveable(saver = SearchState.Saver) {
     SearchState()
 }
-
