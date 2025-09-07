@@ -2,9 +2,8 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    id("maven-publish")
+    alias(libs.plugins.dezdeqness.kmp.library)
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 val props = Properties().apply {
@@ -13,60 +12,37 @@ val props = Properties().apply {
 
 android {
     namespace = "com.dezdeqness.core"
-    compileSdk = 35
+}
 
-    defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    kotlinOptions {
-        jvmTarget = "21"
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
+        }
     }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("core") {
-                afterEvaluate {
-                    from(components["release"])
-                }
-                groupId = "com.dezdeqness.support"
-                artifactId = "core"
-                version = "0.1.1"
-            }
-
-            repositories {
-                maven {
-                    name = "GitHubPackages"
-                    url = uri("https://maven.pkg.github.com/Dezdeqness/Android-Support-Things")
-                    credentials {
-                        username = props["github.username"].toString()
-                        password = props["github.token"].toString()
-                    }
-                }
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Dezdeqness/Android-Support-Things")
+            credentials {
+                username = props["github.username"]?.toString()
+                password = props["github.token"]?.toString()
             }
         }
     }
 }
 
-dependencies {
+mavenPublishing {
+    coordinates(
+        groupId = "com.dezdeqness.support",
+        artifactId = "core",
+        version = "0.1.3"
+    )
 
-    implementation(libs.androidx.core)
-
-    implementation(libs.androidx.appcompat)
-
-    testImplementation(libs.junit.api)
-    testImplementation(libs.junit.engine)
-
-    implementation(libs.androidx.test.junit)
-    implementation(libs.androidx.test.espresso)
-
+    pom {
+        name.set("core")
+    }
 }

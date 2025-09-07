@@ -1,6 +1,7 @@
 package com.dezdeqness.core.dispatcher
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 
 class CoroutineDispatcherProviderImpl : CoroutineDispatcherProvider {
 
