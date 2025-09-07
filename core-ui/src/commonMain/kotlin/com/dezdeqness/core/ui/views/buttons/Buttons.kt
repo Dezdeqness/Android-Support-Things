@@ -11,8 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.core.ui.theme.AppTheme
 
@@ -83,37 +81,37 @@ fun AppTextButton(
 sealed class ButtonColors() {
     // TODO: Fulfill with next tickets, by purpose
 }
+//
+//@PreviewLightDark
+//@Composable
+//fun AppButtonPreview() {
+//    AppTheme {
+//        AppButton(
+//            title = LoremIpsum(2).values.joinToString(),
+//            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
+//        )
+//    }
+//}
 
-@PreviewLightDark
-@Composable
-fun AppButtonPreview() {
-    AppTheme {
-        AppButton(
-            title = LoremIpsum(2).values.joinToString(),
-            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
-        )
-    }
-}
-
-@PreviewLightDark
-@Composable
-fun AppOutlinedButtonPreview() {
-    AppTheme {
-        AppOutlinedButton(
-            title = LoremIpsum(2).values.joinToString(),
-            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
-        )
-    }
-}
-
-@PreviewLightDark
-@Composable
-fun AppTextButtonPreview() {
-    AppTheme {
-        AppTextButton(
-            title = LoremIpsum(2).values.joinToString(),
-            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
-        )
-    }
-}
-
+//@PreviewLightDark
+//@Composable
+//fun AppOutlinedButtonPreview() {
+//    AppTheme {
+//        AppOutlinedButton(
+//            title = LoremIpsum(2).values.joinToString(),
+//            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
+//        )
+//    }
+//}
+//
+//@PreviewLightDark
+//@Composable
+//fun AppTextButtonPreview() {
+//    AppTheme {
+//        AppTextButton(
+//            title = LoremIpsum(2).values.joinToString(),
+//            modifier = Modifier.background(AppTheme.colors.background).padding(16.dp)
+//        )
+//    }
+//}
+//

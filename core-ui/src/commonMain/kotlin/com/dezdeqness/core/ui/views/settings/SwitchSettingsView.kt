@@ -9,7 +9,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.dezdeqness.core.ui.theme.AppTheme
 
 @Composable
@@ -38,35 +37,35 @@ fun SwitchSettingsView(
     )
 }
 
-@PreviewLightDark
-@Composable
-fun SwitchSettingsViewPreview() {
-    AppTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(AppTheme.colors.onPrimary)
-        ) {
-            SwitchSettingsView(
-                title = "Title1",
-                onCheckedChanged = {},
-            )
-            SwitchSettingsView(
-                title = "Title1",
-                checked = true,
-                onCheckedChanged = {},
-            )
-            SwitchSettingsView(
-                title = "Title1",
-                subtitle = "Subtitle1",
-                onCheckedChanged = {},
-            )
-            SwitchSettingsView(
-                title = "Title1",
-                subtitle = "Subtitle1",
-                icon = Icons.Outlined.Settings,
-                onCheckedChanged = {},
-            )
-        }
-    }
-}
+//@PreviewLightDark
+//@Composable
+//fun SwitchSettingsViewPreview() {
+//    AppTheme {
+//        Column(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .background(AppTheme.colors.onPrimary)
+//        ) {
+//            SwitchSettingsView(
+//                title = "Title1",
+//                onCheckedChanged = {},
+//            )
+//            SwitchSettingsView(
+//                title = "Title1",
+//                checked = true,
+//                onCheckedChanged = {},
+//            )
+//            SwitchSettingsView(
+//                title = "Title1",
+//                subtitle = "Subtitle1",
+//                onCheckedChanged = {},
+//            )
+//            SwitchSettingsView(
+//                title = "Title1",
+//                subtitle = "Subtitle1",
+//                icon = Icons.Outlined.Settings,
+//                onCheckedChanged = {},
+//            )
+//        }
+//    }
+//}

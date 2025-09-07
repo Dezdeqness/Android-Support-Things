@@ -8,6 +8,7 @@ internal fun Project.configureKmp() {
     extensions.configure<KotlinMultiplatformExtension> {
         applyDefaultHierarchyTemplate()
 
+        jvm("desktop")
         androidTarget {
             publishLibraryVariants("release", "debug")
         }

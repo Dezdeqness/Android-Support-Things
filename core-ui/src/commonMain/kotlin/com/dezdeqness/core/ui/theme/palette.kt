@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 object LightColors {
@@ -335,65 +334,65 @@ private fun ColorBox(color: Color) {
             .background(color = color, RoundedCornerShape(4.dp))
     )
 }
-
-@Preview(name = "Red palette")
-@Composable
-fun PreviewRedPalette() {
-    ColorsList(colors = redPaletteList)
-}
-
-@Preview(name = "Purple palette")
-@Composable
-fun PreviewPurplePalette() {
-    ColorsList(colors = purplePaletteList)
-}
-
-@Preview(name = "Deep purple palette")
-@Composable
-fun PreviewDeepPurplePalette() {
-    ColorsList(colors = deepPurplePaletteList)
-}
-
-@Preview(name = "Blue palette")
-@Composable
-fun PreviewBluePalette() {
-    ColorsList(colors = bluePaletteList)
-}
-
-@Preview(name = "Green palette")
-@Composable
-fun PreviewGreenPalette() {
-    ColorsList(colors = greenPaletteList)
-}
-
-@Preview(name = "Yellow palette")
-@Composable
-fun PreviewYellowPalette() {
-    ColorsList(colors = yellowPaletteList)
-}
-
-@Preview(name = "Orange palette")
-@Composable
-fun PreviewOrangePalette() {
-    ColorsList(colors = orangePaletteList)
-}
-
-@Preview(name = "Gray palette")
-@Composable
-fun PreviewGrayPalette() {
-    ColorsList(colors = grayPaletteList)
-}
-
-@Preview(name = "Black&White palette")
-@Composable
-fun PreviewBlackAndWhitePalette() {
-    ColorsList(
-        colors = listOf(
-            black,
-            white,
-        ),
-    )
-}
+//
+//@Preview(name = "Red palette")
+//@Composable
+//fun PreviewRedPalette() {
+//    ColorsList(colors = redPaletteList)
+//}
+//
+//@Preview(name = "Purple palette")
+//@Composable
+//fun PreviewPurplePalette() {
+//    ColorsList(colors = purplePaletteList)
+//}
+//
+//@Preview(name = "Deep purple palette")
+//@Composable
+//fun PreviewDeepPurplePalette() {
+//    ColorsList(colors = deepPurplePaletteList)
+//}
+//
+//@Preview(name = "Blue palette")
+//@Composable
+//fun PreviewBluePalette() {
+//    ColorsList(colors = bluePaletteList)
+//}
+//
+//@Preview(name = "Green palette")
+//@Composable
+//fun PreviewGreenPalette() {
+//    ColorsList(colors = greenPaletteList)
+//}
+//
+//@Preview(name = "Yellow palette")
+//@Composable
+//fun PreviewYellowPalette() {
+//    ColorsList(colors = yellowPaletteList)
+//}
+//
+//@Preview(name = "Orange palette")
+//@Composable
+//fun PreviewOrangePalette() {
+//    ColorsList(colors = orangePaletteList)
+//}
+//
+//@Preview(name = "Gray palette")
+//@Composable
+//fun PreviewGrayPalette() {
+//    ColorsList(colors = grayPaletteList)
+//}
+//
+//@Preview(name = "Black&White palette")
+//@Composable
+//fun PreviewBlackAndWhitePalette() {
+//    ColorsList(
+//        colors = listOf(
+//            black,
+//            white,
+//        ),
+//    )
+//}
 
 data class NamedColor(val name: String, val color: Color)
 
@@ -470,14 +469,14 @@ fun ColorListPreview(title: String, colors: List<NamedColor>) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LightAnimeColorsPreview() {
-    ColorListPreview("Light Anime Colors", lightColors)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DarkAnimeColorsPreview() {
-    ColorListPreview("Dark Anime Colors", darkColors)
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun LightAnimeColorsPreview() {
+//    ColorListPreview("Light Anime Colors", lightColors)
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun DarkAnimeColorsPreview() {
+//    ColorListPreview("Dark Anime Colors", darkColors)
+//}

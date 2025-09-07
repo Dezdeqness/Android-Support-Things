@@ -1,6 +1,5 @@
 package com.dezdeqness.core.ui.views.textfield
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -69,11 +68,11 @@ fun SearchTextField(
         mutableStateOf(false)
     }
 
-    BackHandler(enabled = editTextFocused) {
-        if (editTextFocused) {
-            focusManager.clearFocus()
-        }
-    }
+//    BackHandler(enabled = editTextFocused) {
+//        if (editTextFocused) {
+//            focusManager.clearFocus()
+//        }
+//    }
 
     OutlinedTextField(
         value = state.query,

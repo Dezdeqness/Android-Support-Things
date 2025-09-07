@@ -10,11 +10,14 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import coil.compose.AsyncImagePainter.State
-import coil.request.ImageRequest
+import coil3.ImageLoader
+import coil3.compose.AsyncImage
+import coil3.compose.AsyncImagePainter.State
+import coil3.compose.LocalPlatformContext
+import coil3.request.ImageRequest
+import coil3.request.crossfade
+import coil3.util.DebugLogger
 
 @Composable
 fun AppImage(
@@ -27,7 +30,12 @@ fun AppImage(
     placeholderVector: ImageVector,
     errorVector: ImageVector,
 ) {
-    val context = LocalContext.current
+    val context = LocalPlatformContext.current
+    val loader = remember {
+        ImageLoader.Builder(context)
+            .logger(DebugLogger())
+            .build()
+    }
 
     val model = remember(data) {
         ImageRequest.Builder(context)
@@ -41,8 +49,9 @@ fun AppImage(
         contentScale = contentScale,
         contentDescription = contentDescription,
         colorFilter = colorFilter,
-        placeholder = rememberVectorPainter(image = placeholderVector),
-        error = rememberVectorPainter(image = errorVector),
+        imageLoader = loader,
+//        placeholder = rememberVectorPainter(image = placeholderVector),
+//        error = rememberVectorPainter(image = errorVector),
         modifier = modifier.clip(shape),
     )
 
@@ -60,7 +69,12 @@ fun AppImage(
     placeholderVector: ImageVector,
     errorVector: ImageVector,
 ) {
-    val context = LocalContext.current
+    val context = LocalPlatformContext.current
+    val loader = remember {
+        ImageLoader.Builder(context)
+            .logger(DebugLogger())
+            .build()
+    }
 
     val model = remember(data) {
         ImageRequest.Builder(context)
@@ -78,6 +92,7 @@ fun AppImage(
         onError = onError,
         placeholder = rememberVectorPainter(image = placeholderVector),
         error = rememberVectorPainter(image = errorVector),
+        imageLoader = loader,
         modifier = modifier
     )
 

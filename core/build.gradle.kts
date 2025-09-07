@@ -39,7 +39,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.dezdeqness.support",
         artifactId = "core",
-        version = "0.1.3"
+        version = "0.1.2"
     )
 
     pom {
