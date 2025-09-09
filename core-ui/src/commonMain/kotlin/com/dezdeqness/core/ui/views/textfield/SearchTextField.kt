@@ -22,7 +22,6 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -63,23 +62,13 @@ fun SearchTextField(
     isEnabled: Boolean = true,
 ) {
     val focusRequester = remember { FocusRequester() }
-    val focusManager = LocalFocusManager.current
-    var editTextFocused by remember {
-        mutableStateOf(false)
-    }
-
-//    BackHandler(enabled = editTextFocused) {
-//        if (editTextFocused) {
-//            focusManager.clearFocus()
-//        }
-//    }
 
     OutlinedTextField(
         value = state.query,
         onValueChange = {
             state.updateQuery(it)
         },
-        placeholder = if (editTextFocused) {
+        placeholder = if (state.editTextFocused) {
             placeholder
         } else {
             null
@@ -89,7 +78,7 @@ fun SearchTextField(
             .background(containerColor, shape)
             .focusRequester(focusRequester)
             .onFocusChanged {
-                editTextFocused = it.isFocused
+                state.editTextFocused = it.isFocused
             },
         textStyle = textStyle,
         singleLine = true,
@@ -98,7 +87,7 @@ fun SearchTextField(
         } else {
             null
         },
-        leadingIcon = if (editTextFocused.not() && state.query.isBlank()) {
+        leadingIcon = if (state.editTextFocused.not() && state.query.isBlank()) {
             leadingIcon
         } else {
             null
@@ -116,6 +105,8 @@ class SearchState {
 
     var hasUserInteracted = false
 
+    var editTextFocused by mutableStateOf(false)
+
     fun updateQuery(query: String) {
         hasUserInteracted = true
         this.query = query
@@ -123,11 +114,12 @@ class SearchState {
 
     companion object {
         val Saver: Saver<SearchState, *> = listSaver(
-            save = { listOf(it.query, it.hasUserInteracted) },
+            save = { listOf(it.query, it.hasUserInteracted, it.editTextFocused) },
             restore = {
                 SearchState().apply {
                     query = it[0] as String
                     hasUserInteracted = it[1] as Boolean
+                    editTextFocused = it[2] as Boolean
                 }
             }
         )

@@ -3,6 +3,7 @@ package com.dezdeqness.core.ui.views.image
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
@@ -17,7 +18,6 @@ import coil3.compose.AsyncImagePainter.State
 import coil3.compose.LocalPlatformContext
 import coil3.request.ImageRequest
 import coil3.request.crossfade
-import coil3.util.DebugLogger
 
 @Composable
 fun AppImage(
@@ -31,11 +31,7 @@ fun AppImage(
     errorVector: ImageVector,
 ) {
     val context = LocalPlatformContext.current
-    val loader = remember {
-        ImageLoader.Builder(context)
-            .logger(DebugLogger())
-            .build()
-    }
+    val loader = LocalAstImageLoader.current
 
     val model = remember(data) {
         ImageRequest.Builder(context)
@@ -50,8 +46,8 @@ fun AppImage(
         contentDescription = contentDescription,
         colorFilter = colorFilter,
         imageLoader = loader,
-//        placeholder = rememberVectorPainter(image = placeholderVector),
-//        error = rememberVectorPainter(image = errorVector),
+        placeholder = rememberVectorPainter(image = placeholderVector),
+        error = rememberVectorPainter(image = errorVector),
         modifier = modifier.clip(shape),
     )
 
@@ -70,11 +66,7 @@ fun AppImage(
     errorVector: ImageVector,
 ) {
     val context = LocalPlatformContext.current
-    val loader = remember {
-        ImageLoader.Builder(context)
-            .logger(DebugLogger())
-            .build()
-    }
+    val loader = LocalAstImageLoader.current
 
     val model = remember(data) {
         ImageRequest.Builder(context)
@@ -95,5 +87,8 @@ fun AppImage(
         imageLoader = loader,
         modifier = modifier
     )
+}
 
+val LocalAstImageLoader = staticCompositionLocalOf<ImageLoader> {
+    error("LocalAstImageLoader should be set")
 }
