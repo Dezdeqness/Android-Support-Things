@@ -23,6 +23,28 @@ object AppTheme {
         get() = LocalShapes.current
 }
 
+@Composable
+fun AppTheme(
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
+    typography: AppTypography = AppTypography(),
+    shapes: AppShapes = AppShapes(),
+    content: @Composable () -> Unit
+) {
+    val colors= if (isDarkTheme) darkColors() else lightColors()
+    val materialDefaultTheme = if (isDarkTheme) toDarkMaterialScheme() else toLightMaterialScheme()
+
+    val rememberedColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
+    CompositionLocalProvider(
+        LocalColors provides rememberedColors,
+        LocalTypography provides typography,
+        LocalShapes provides shapes,
+    ) {
+        MaterialTheme(colorScheme = materialDefaultTheme) {
+            content()
+        }
+    }
+}
+
 
 @Composable
 fun AppTheme(
