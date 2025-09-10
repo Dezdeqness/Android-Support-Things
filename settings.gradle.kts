@@ -24,5 +24,5 @@ rootProject.name = "Android Support Things"
 include(":core-ui")
 include(":core")
 
-include(":ast-shared")
-include(":ast-android")
+include(":ast")
+include(":ast-viewbook-core")
