@@ -9,6 +9,9 @@ import com.dezdeqness.ast.views.buttonDefault
 import com.dezdeqness.ast.views.buttonOutlined
 import com.dezdeqness.ast.views.buttonText
 import com.dezdeqness.ast.views.chipDefault
+import com.dezdeqness.ast.views.iconButtonDefault
+import com.dezdeqness.ast.views.iconFilledButtonDefault
+import com.dezdeqness.ast.views.iconOutlinedButtonDefault
 import com.dezdeqness.ast.views.tileDefault
 import com.dezdeqness.ast.views.tileFull
 import com.dezdeqness.ast.views.tileNoShape
@@ -30,6 +33,9 @@ fun App() {
                 tileSuffix,
                 tileFull,
                 tileNoShape,
+                iconFilledButtonDefault,
+                iconOutlinedButtonDefault,
+                iconButtonDefault,
             )
         )
     }
