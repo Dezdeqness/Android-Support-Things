@@ -13,6 +13,7 @@ import com.dezdeqness.ast.views.headerSettingsDefault
 import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
+import com.dezdeqness.ast.views.progressSettingsDefault
 import com.dezdeqness.ast.views.switchSettingsDefault
 import com.dezdeqness.ast.views.switchSettingsDisabled
 import com.dezdeqness.ast.views.switchSettingsFull
@@ -54,6 +55,7 @@ fun App() {
                 switchSettingsDefault,
                 switchSettingsDisabled,
                 switchSettingsFull,
+                progressSettingsDefault,
             )
         )
     }

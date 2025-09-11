@@ -51,11 +51,11 @@ fun TextSettingsView(
         onClick = if (enabled) onClick else null,
         contentColor = contentColor,
         contentPadding = contentPadding,
-        prefixIcon = { modifier ->
-            prefixIcon?.invoke(modifier)
+        prefixIcon = { iconModifier ->
+            prefixIcon?.invoke(iconModifier)
         },
-        suffixIcon = { modifier ->
-            suffixIcon?.invoke(modifier)
+        suffixIcon = { iconModifier ->
+            suffixIcon?.invoke(iconModifier)
         },
     )
 }

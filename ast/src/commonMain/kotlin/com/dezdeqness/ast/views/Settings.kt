@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.settings.HeaderSettingsView
+import com.dezdeqness.core.ui.views.settings.ProgressSettingsView
 import com.dezdeqness.core.ui.views.settings.SwitchSettingsView
 import com.dezdeqness.core.ui.views.settings.TextSettingsView
 
@@ -179,6 +180,18 @@ val switchSettingsFull = ViewCase(
             onCheckedChanged = {
 
             },
+        )
+    }
+)
+
+val progressSettingsDefault = ViewCase(
+    title = "progressSettingsDefault",
+    content = {
+        ProgressSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = "Cache size",
+            subtitle = "128 out 256",
+            progress = 0.5f,
         )
     }
 )
