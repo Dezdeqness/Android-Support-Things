@@ -1,11 +1,9 @@
 package com.dezdeqness.core.ui.views.header
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -19,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dezdeqness.core.ui.theme.AppTheme
@@ -30,14 +27,14 @@ fun Header(
     title: String,
     titleStyle: TextStyle = AppTheme.typography.labelLarge.copy(fontSize = 20.sp),
     titleColor: Color = AppTheme.colors.textPrimary,
-    verticalPadding: Dp = 16.dp,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
 ) {
     Header(
         modifier = modifier,
         title = title,
         titleStyle = titleStyle,
         titleColor = titleColor,
-        verticalPadding = verticalPadding,
+        contentPadding = contentPadding,
         onClick = null,
     )
 }
@@ -50,7 +47,7 @@ fun Header(
     titleColor: Color = AppTheme.colors.textPrimary,
     icon: ImageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
     iconColor: Color = AppTheme.colors.onSurface,
-    verticalPadding: Dp = 16.dp,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     onClick: (() -> Unit)? = null,
 ) {
     Row(
@@ -61,14 +58,13 @@ fun Header(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = ripple(color = AppTheme.colors.ripple),
             )
-            .padding(horizontal = 16.dp),
+            .padding(contentPadding),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(
             title,
             style = titleStyle,
-            modifier = Modifier.padding(vertical = verticalPadding),
+            modifier = Modifier.weight(1f),
             color = titleColor
         )
 
@@ -81,17 +77,3 @@ fun Header(
         }
     }
 }
-
-//@PreviewLightDark
-//@Composable
-//fun HeaderPreview() {
-//    AppTheme {
-//        Header(
-//            modifier = Modifier
-//                .background(AppTheme.colors.onPrimary)
-//                .fillMaxWidth(),
-//            title = "Sci-Fi",
-//            onClick = {},
-//        )
-//    }
-//}

@@ -9,9 +9,18 @@ import com.dezdeqness.ast.views.buttonDefault
 import com.dezdeqness.ast.views.buttonOutlined
 import com.dezdeqness.ast.views.buttonText
 import com.dezdeqness.ast.views.chipDefault
+import com.dezdeqness.ast.views.headerSettingsDefault
 import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
+import com.dezdeqness.ast.views.switchSettingsDefault
+import com.dezdeqness.ast.views.switchSettingsDisabled
+import com.dezdeqness.ast.views.switchSettingsFull
+import com.dezdeqness.ast.views.textSettingsDefault
+import com.dezdeqness.ast.views.textSettingsDisabled
+import com.dezdeqness.ast.views.textSettingsFull
+import com.dezdeqness.ast.views.textSettingsPrefix
+import com.dezdeqness.ast.views.textSettingsSuffix
 import com.dezdeqness.ast.views.tileDefault
 import com.dezdeqness.ast.views.tileFull
 import com.dezdeqness.ast.views.tileNoShape
@@ -36,6 +45,15 @@ fun App() {
                 iconFilledButtonDefault,
                 iconOutlinedButtonDefault,
                 iconButtonDefault,
+                textSettingsDefault,
+                textSettingsDisabled,
+                textSettingsPrefix,
+                textSettingsSuffix,
+                textSettingsFull,
+                headerSettingsDefault,
+                switchSettingsDefault,
+                switchSettingsDisabled,
+                switchSettingsFull,
             )
         )
     }

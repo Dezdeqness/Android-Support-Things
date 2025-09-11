@@ -60,7 +60,7 @@ fun AppTile(
             style = textStyle,
             modifier = Modifier.weight(1f),
             maxLines = maxLines,
-            textAlign = TextAlign.Center,
+            textAlign = TextAlign.Start,
             color = AppTheme.colors.textPrimary,
             overflow = TextOverflow.Ellipsis,
         )
