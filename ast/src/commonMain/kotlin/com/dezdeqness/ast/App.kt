@@ -19,6 +19,10 @@ import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
 import com.dezdeqness.ast.views.progressSettingsDefault
+import com.dezdeqness.ast.views.singleChoiceBottomSheetDefault
+import com.dezdeqness.ast.views.singleChoiceBottomSheetHeaderLess
+import com.dezdeqness.ast.views.singleChoiceDialogDefault
+import com.dezdeqness.ast.views.singleChoiceDialogHeaderLess
 import com.dezdeqness.ast.views.switchSettingsDefault
 import com.dezdeqness.ast.views.switchSettingsDisabled
 import com.dezdeqness.ast.views.switchSettingsFull
@@ -66,6 +70,10 @@ fun App() {
                 headerDefault,
                 headerIconLess,
                 headerShaped,
+                singleChoiceDialogDefault,
+                singleChoiceDialogHeaderLess,
+                singleChoiceBottomSheetDefault,
+                singleChoiceBottomSheetHeaderLess,
             )
         )
     }
