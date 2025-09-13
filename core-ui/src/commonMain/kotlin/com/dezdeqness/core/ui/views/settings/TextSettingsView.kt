@@ -31,7 +31,7 @@ fun TextSettingsView(
                 text = title,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = AppTheme.typography.titleLarge,
+                style = AppTheme.typography.bodyLarge,
                 color = AppTheme.colors.textPrimary,
             )
         },
@@ -59,3 +59,42 @@ fun TextSettingsView(
         },
     )
 }
+
+
+@Composable
+fun TextSettingsView(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    subtitle: (@Composable () -> Unit)? = null,
+    onClick: (() -> Unit)? = null,
+    enabled: Boolean = true,
+    contentColor: Color = AppTheme.colors.onPrimary,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+    prefixIcon: (@Composable (Modifier) -> Unit)? = null,
+    suffixIcon: (@Composable (Modifier) -> Unit)? = null,
+) {
+    BaseSettingsView(
+        modifier = modifier,
+        title = {
+            title()
+        },
+        subTitle = if (subtitle != null) {
+            {
+                subtitle.invoke()
+            }
+        } else {
+            null
+        },
+        enabled = enabled,
+        onClick = if (enabled) onClick else null,
+        contentColor = contentColor,
+        contentPadding = contentPadding,
+        prefixIcon = { iconModifier ->
+            prefixIcon?.invoke(iconModifier)
+        },
+        suffixIcon = { iconModifier ->
+            suffixIcon?.invoke(iconModifier)
+        },
+    )
+}
+

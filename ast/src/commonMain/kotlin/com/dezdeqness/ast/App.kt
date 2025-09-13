@@ -5,11 +5,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import com.dezdeqness.ast.viewbook.core.ViewBook
 import com.dezdeqness.ast.viewbook.core.ViewBookState
+import com.dezdeqness.ast.views.appSectionDefault
 import com.dezdeqness.ast.views.buttonDefault
 import com.dezdeqness.ast.views.buttonOutlined
 import com.dezdeqness.ast.views.buttonText
 import com.dezdeqness.ast.views.chipDefault
+import com.dezdeqness.ast.views.headerDefault
+import com.dezdeqness.ast.views.headerIconLess
+import com.dezdeqness.ast.views.headerSettingsColor
 import com.dezdeqness.ast.views.headerSettingsDefault
+import com.dezdeqness.ast.views.headerShaped
 import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
@@ -52,10 +57,15 @@ fun App() {
                 textSettingsSuffix,
                 textSettingsFull,
                 headerSettingsDefault,
+                headerSettingsColor,
                 switchSettingsDefault,
                 switchSettingsDisabled,
                 switchSettingsFull,
                 progressSettingsDefault,
+                appSectionDefault,
+                headerDefault,
+                headerIconLess,
+                headerShaped,
             )
         )
     }
