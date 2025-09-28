@@ -115,6 +115,17 @@ val headerSettingsDefault = ViewCase(
     }
 )
 
+val headerSettingsColor = ViewCase(
+    title = "headerSettingsColor",
+    content = {
+        HeaderSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = "Settings",
+            titleColor = AppTheme.colors.primary,
+        )
+    }
+)
+
 val switchSettingsDefault = ViewCase(
     title = "switchSettingsDefault",
     content = {

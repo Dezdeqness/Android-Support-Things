@@ -36,6 +36,7 @@ internal fun BaseSettingsView(
     suffixIcon: (@Composable (Modifier) -> Unit)? = null,
 ) {
     Box(
+        contentAlignment = Alignment.Center,
         modifier = modifier
             .sizeIn(minHeight = MinHeight)
             .background(contentColor)
@@ -56,11 +57,7 @@ internal fun BaseSettingsView(
             val iconModifier = Modifier.size(24.dp)
 
             prefixIcon?.invoke(iconModifier)
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(vertical = 16.dp),
-            ) {
+            Column(modifier = Modifier.weight(1f)) {
                 title.invoke(this)
                 subTitle?.invoke(this)
             }

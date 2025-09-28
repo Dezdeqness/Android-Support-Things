@@ -1,5 +1,6 @@
 package com.dezdeqness.core.ui.views.header
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,6 +28,7 @@ fun Header(
     title: String,
     titleStyle: TextStyle = AppTheme.typography.labelLarge.copy(fontSize = 20.sp),
     titleColor: Color = AppTheme.colors.textPrimary,
+    contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
 ) {
     Header(
@@ -34,6 +36,7 @@ fun Header(
         title = title,
         titleStyle = titleStyle,
         titleColor = titleColor,
+        contentColor = contentColor,
         contentPadding = contentPadding,
         onClick = null,
     )
@@ -47,11 +50,13 @@ fun Header(
     titleColor: Color = AppTheme.colors.textPrimary,
     icon: ImageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
     iconColor: Color = AppTheme.colors.onSurface,
+    contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     onClick: (() -> Unit)? = null,
 ) {
     Row(
         modifier = modifier
+            .background(contentColor)
             .clickable(
                 enabled = onClick != null,
                 onClick = onClick ?: {},
