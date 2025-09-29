@@ -20,11 +20,12 @@ fun <T> SingleChoiceDialog(
     values: List<T>,
     onValueSelected: (T) -> Unit,
     contentColor: Color = AppTheme.colors.background,
+    properties: DialogProperties = DialogProperties(),
     onDismiss: () -> Unit,
 ) {
     Dialog(
         onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false),
+        properties = properties,
     ) {
         Surface(
             modifier = modifier,
