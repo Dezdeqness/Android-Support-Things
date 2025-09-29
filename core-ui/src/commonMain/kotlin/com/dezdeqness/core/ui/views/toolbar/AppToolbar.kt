@@ -1,6 +1,7 @@
 package com.dezdeqness.core.ui.views.toolbar
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,6 +27,7 @@ fun AppToolbar(
     navigationIcon: ImageVector? = Icons.AutoMirrored.Filled.ArrowBack,
     navigationColor: Color = AppTheme.colors.onSurface,
     navigationClick: () -> Unit = {},
+    windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
@@ -49,5 +51,6 @@ fun AppToolbar(
         },
         colors = colors,
         actions = actions,
+        windowInsets = windowInsets,
     )
 }
