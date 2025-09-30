@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -17,6 +18,7 @@ import coil3.compose.AsyncImagePainter.State
 import coil3.compose.LocalPlatformContext
 import coil3.request.ImageRequest
 import coil3.request.crossfade
+import com.dezdeqness.core.ui.theme.AppTheme
 
 @Composable
 fun AppImage(
@@ -26,8 +28,8 @@ fun AppImage(
     colorFilter: ColorFilter? = null,
     contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
-    placeholder: Painter? = null,
-    error: Painter? = null,
+    placeholder: Painter? = ColorPainter(AppTheme.colors.surface),
+    error: Painter? = ColorPainter(AppTheme.colors.surface),
 ) {
     val context = LocalPlatformContext.current
     val loader = LocalAstImageLoader.current
@@ -60,8 +62,8 @@ fun AppImage(
     onError: ((State.Error) -> Unit)? = null,
     contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
-    placeholder: Painter? = null,
-    error: Painter? = null,
+    placeholder: Painter? = ColorPainter(AppTheme.colors.surface),
+    error: Painter? = ColorPainter(AppTheme.colors.surface),
 ) {
     val context = LocalPlatformContext.current
     val loader = LocalAstImageLoader.current
@@ -95,8 +97,8 @@ fun AppImage(
     colorFilter: ColorFilter? = null,
     contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
-    placeholder: Painter? = null,
-    error: Painter? = null,
+    placeholder: Painter? = ColorPainter(AppTheme.colors.surface),
+    error: Painter? = ColorPainter(AppTheme.colors.surface),
 ) {
     val loader = LocalAstImageLoader.current
 
@@ -121,8 +123,8 @@ fun AppImage(
     onError: ((State.Error) -> Unit)? = null,
     contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
-    placeholder: Painter? = null,
-    error: Painter? = null,
+    placeholder: Painter? = ColorPainter(AppTheme.colors.surface),
+    error: Painter? = ColorPainter(AppTheme.colors.surface),
 ) {
     val loader = LocalAstImageLoader.current
 

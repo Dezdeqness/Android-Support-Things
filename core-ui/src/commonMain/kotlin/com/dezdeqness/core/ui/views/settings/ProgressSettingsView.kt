@@ -26,7 +26,7 @@ fun ProgressSettingsView(
     title: String,
     subtitle: String,
     progress: Float,
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.background,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
 ) {
     ProgressSettingsView(
@@ -36,7 +36,7 @@ fun ProgressSettingsView(
                 text = title,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = AppTheme.typography.bodyLarge,
+                style = AppTheme.typography.bodyMedium,
                 color = AppTheme.colors.textPrimary,
             )
         },

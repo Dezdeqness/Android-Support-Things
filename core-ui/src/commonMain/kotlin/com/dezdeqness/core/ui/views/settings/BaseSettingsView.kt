@@ -30,7 +30,7 @@ internal fun BaseSettingsView(
     title: @Composable ColumnScope.() -> Unit,
     subTitle: @Composable (ColumnScope.() -> Unit)? = null,
     onClick: (() -> Unit)? = null,
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.background,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
     prefixIcon: (@Composable (Modifier) -> Unit)? = null,
     suffixIcon: (@Composable (Modifier) -> Unit)? = null,

@@ -30,7 +30,7 @@ fun AppTile(
     text: String,
     onClick: (() -> Unit)? = null,
     shape: Shape? = RoundedCornerShape(12.dp),
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.background,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
     textStyle: TextStyle = AppTheme.typography.labelLarge,
     maxLines: Int = 2,

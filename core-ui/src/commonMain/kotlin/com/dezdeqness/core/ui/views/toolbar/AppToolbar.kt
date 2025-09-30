@@ -23,7 +23,7 @@ fun AppToolbar(
     modifier: Modifier = Modifier,
     title: String = "",
     titleColor: Color = AppTheme.colors.textPrimary,
-    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(containerColor = AppTheme.colors.onPrimary),
+    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(containerColor = AppTheme.colors.background),
     navigationIcon: ImageVector? = Icons.AutoMirrored.Filled.ArrowBack,
     navigationColor: Color = AppTheme.colors.onSurface,
     navigationClick: () -> Unit = {},
@@ -48,6 +48,30 @@ fun AppToolbar(
                     )
                 }
             }
+        },
+        colors = colors,
+        actions = actions,
+        windowInsets = windowInsets,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AppToolbar(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    navigation: (@Composable () -> Unit)? = null,
+    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(containerColor = AppTheme.colors.background),
+    windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
+    actions: @Composable RowScope.() -> Unit = {},
+) {
+    TopAppBar(
+        modifier = modifier,
+        title = {
+            title()
+        },
+        navigationIcon = {
+            navigation?.invoke()
         },
         colors = colors,
         actions = actions,

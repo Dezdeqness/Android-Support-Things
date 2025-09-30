@@ -29,6 +29,8 @@ fun HeaderSettingsView(
     title: String,
     titleStyle: TextStyle = AppTheme.typography.titleMedium,
     titleColor: Color = AppTheme.colors.textPrimary,
+    contentColor: Color = AppTheme.colors.background,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
 ) {
     TextSettingsView(
         modifier = modifier,
@@ -41,6 +43,7 @@ fun HeaderSettingsView(
                 color = titleColor,
             )
         },
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+        contentColor = contentColor,
+        contentPadding = contentPadding,
     )
 }

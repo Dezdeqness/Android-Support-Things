@@ -19,7 +19,7 @@ fun <T> AppSections(
     modifier: Modifier = Modifier,
     header: @Composable () -> Unit,
     items: List<T>,
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.background,
     contentListPadding: PaddingValues = PaddingValues(horizontal = 16.dp),
     contentItemPadding: Dp = 4.dp,
     key: ((T) -> Any)? = null,
