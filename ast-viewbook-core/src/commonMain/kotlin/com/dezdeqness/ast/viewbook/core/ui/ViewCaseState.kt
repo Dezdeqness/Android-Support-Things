@@ -6,10 +6,11 @@ import androidx.compose.runtime.mutableStateOf
 
 @Composable
 fun <T> rememberViewCaseState(key: String, initialValue: T): MutableState<T> {
-    val stateMap = LocalViewCaseState.current
+    val holder = LocalViewCaseState.current
+    val fullKey = "${holder.viewCaseId}:$key"
 
     @Suppress("UNCHECKED_CAST")
-    return stateMap.getOrPut(key) {
+    return holder.stateMap.getOrPut(fullKey) {
         mutableStateOf(initialValue)
     } as MutableState<T>
 }

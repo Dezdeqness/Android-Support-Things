@@ -17,7 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 
-val LocalViewCaseState = compositionLocalOf<MutableMap<String, Any>> {
+data class ViewCaseStateHolder(
+    val stateMap: MutableMap<String, Any>,
+    val viewCaseId: String
+)
+
+val LocalViewCaseState = compositionLocalOf<ViewCaseStateHolder> {
     error("No ViewCaseState provided")
 }
 
@@ -27,8 +32,11 @@ fun ViewCasePreview(
     viewCase: ViewCase
 ) {
     val state = remember(viewCase.title) { mutableStateMapOf<String, Any>() }
+    val stateHolder = remember(viewCase.title) {
+        ViewCaseStateHolder(state, viewCase.title)
+    }
 
-    CompositionLocalProvider(LocalViewCaseState provides state) {
+    CompositionLocalProvider(LocalViewCaseState provides stateHolder) {
         Row(modifier) {
             Column(modifier = Modifier.fillMaxHeight().weight(1f)) {
                 Box(
