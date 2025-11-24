@@ -59,4 +59,10 @@ sealed class ViewParameter {
         override val label: String,
         val content: @Composable () -> Unit
     ) : ViewParameter()
+
+    data class ListParameter(
+        override val label: String,
+        val value: List<String>,
+        val onChange: (List<String>) -> Unit
+    ) : ViewParameter()
 }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -92,6 +93,10 @@ fun ParametersList(
 
                 is ViewParameter.CustomParameter -> {
                     CustomParameterView(parameter)
+                }
+
+                is ViewParameter.ListParameter -> {
+                    ListParameterView(parameter)
                 }
             }
         }
@@ -324,7 +329,7 @@ private fun DensityParameterView(parameter: ViewParameter.DensityParameter) {
 private fun CustomParameterView(parameter: ViewParameter.CustomParameter) {
     Column(
         modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = parameter.label,
@@ -333,6 +338,144 @@ private fun CustomParameterView(parameter: ViewParameter.CustomParameter) {
         )
         parameter.content()
     }
+}
+
+@Composable
+private fun ListParameterView(parameter: ViewParameter.ListParameter) {
+    var showAddDialog by remember { mutableStateOf(false) }
+    var editingIndex by remember { mutableStateOf<Int?>(null) }
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
+    ) {
+        Text(
+            text = parameter.label,
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    shape = RoundedCornerShape(6.dp)
+                )
+                .padding(8.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            if (parameter.value.isEmpty()) {
+                Text(
+                    text = "Empty list",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(4.dp)
+                )
+            } else {
+                parameter.value.forEachIndexed { index, item ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(4.dp))
+                            .clickable { editingIndex = index }
+                            .padding(vertical = 2.dp, horizontal = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "${index + 1}. $item",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.weight(1f)
+                        )
+                        TextButton(
+                            onClick = {
+                                val newList = parameter.value.toMutableList()
+                                newList.removeAt(index)
+                                parameter.onChange(newList)
+                            },
+                            modifier = Modifier.size(24.dp),
+                            contentPadding = PaddingValues(0.dp)
+                        ) {
+                            Text("✕", style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+                }
+            }
+        }
+
+        TextButton(
+            onClick = { showAddDialog = true },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("+ Add item", style = MaterialTheme.typography.bodySmall)
+        }
+    }
+
+    if (showAddDialog) {
+        EditListItemDialog(
+            initialValue = "",
+            onItemSaved = { newItem ->
+                parameter.onChange(parameter.value + newItem)
+                showAddDialog = false
+            },
+            onDismiss = { showAddDialog = false }
+        )
+    }
+
+    editingIndex?.let { index ->
+        EditListItemDialog(
+            initialValue = parameter.value[index],
+            onItemSaved = { editedItem ->
+                val newList = parameter.value.toMutableList()
+                newList[index] = editedItem
+                parameter.onChange(newList)
+                editingIndex = null
+            },
+            onDismiss = { editingIndex = null }
+        )
+    }
+}
+
+@Composable
+private fun EditListItemDialog(
+    initialValue: String,
+    onItemSaved: (String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    var itemText by remember { mutableStateOf(initialValue) }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(if (initialValue.isEmpty()) "Add item" else "Edit item") },
+        text = {
+            TextField(
+                value = itemText,
+                onValueChange = { itemText = it },
+                label = { Text("Item text") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth()
+            )
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    if (itemText.isNotBlank()) {
+                        onItemSaved(itemText)
+                    }
+                }
+            ) {
+                Text("Save")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancel")
+            }
+        }
+    )
 }
 
 private fun parseColor(hex: String): androidx.compose.ui.graphics.Color {
