@@ -5,4 +5,5 @@ import androidx.compose.runtime.Composable
 data class ViewCase(
     val title: String,
     val content: @Composable ViewCase.() -> Unit,
+    val parameters: @Composable () -> List<ViewParameter> = { emptyList() },
 )
