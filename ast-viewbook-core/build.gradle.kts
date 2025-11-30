@@ -13,6 +13,7 @@ kotlin {
             implementation(libs.compose.material3)
             implementation(libs.material.icons.core)
             implementation(libs.coil.compose)
+            implementation(project(":core-ui"))
         }
 
         val desktopMain by getting {
