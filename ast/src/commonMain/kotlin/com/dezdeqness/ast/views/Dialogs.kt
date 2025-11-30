@@ -167,3 +167,125 @@ val singleChoiceBottomSheetDefault = ViewCase(
         )
     }
 )
+
+val singleChoiceDialogHeaderLess = ViewCase(
+    title = "singleChoiceDialogHeaderLess",
+    content = {
+        val widthState = rememberViewCaseState("dlg_hl_width", 250f)
+        val dataState = rememberViewCaseState("dlg_hl_data", listOf("blue", "red", "green"))
+        val selectedState = rememberViewCaseState("dlg_hl_selected", "green")
+        var isDialogVisible by remember { mutableStateOf(false) }
+
+        AppButton(
+            title = "Click",
+            onClick = {
+                isDialogVisible = true
+            }
+        )
+
+        if (isDialogVisible) {
+            SingleChoiceDialog(
+                modifier = Modifier.width(widthState.value.toInt().dp),
+                title = null,
+                values = dataState.value,
+                selectedValue = selectedState.value,
+                valueText = { it },
+                onValueSelected = { _ ->
+                    isDialogVisible = false
+                },
+                onDismiss = {
+                    isDialogVisible = false
+                },
+            )
+        }
+    },
+    parameters = {
+        val widthState = rememberViewCaseState("dlg_hl_width", 250f)
+        val dataState = rememberViewCaseState("dlg_hl_data", listOf("blue", "red", "green"))
+        val selectedState = rememberViewCaseState("dlg_hl_selected", "green")
+
+        listOf(
+            ViewParameter.DensityParameter(
+                label = "Width",
+                value = widthState.value,
+                min = 200f,
+                max = 400f,
+                step = 50f,
+                onChange = { widthState.value = it }
+            ),
+            ViewParameter.ListParameter(
+                label = "Items",
+                value = dataState.value,
+                onChange = { dataState.value = it }
+            ),
+            ViewParameter.ChoiceParameter(
+                label = "Selected Item",
+                options = dataState.value + "none",
+                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
+            )
+        )
+    }
+)
+
+@OptIn(ExperimentalMaterial3Api::class)
+val singleChoiceBottomSheetHeaderLess = ViewCase(
+    title = "singleChoiceBottomSheetHeaderLess",
+    content = {
+        val dataState = rememberViewCaseState("bs_hl_data", listOf("blue", "red", "green"))
+        val selectedState = rememberViewCaseState("bs_hl_selected", "green")
+
+        val scope = rememberCoroutineScope()
+        val sheetState = rememberModalBottomSheetState()
+        var isDialogVisible by remember { mutableStateOf(false) }
+
+        AppButton(
+            title = "Click",
+            onClick = {
+                isDialogVisible = true
+            }
+        )
+
+        if (isDialogVisible) {
+            SingleChoiceBottomSheet(
+                state = sheetState,
+                title = null,
+                values = dataState.value,
+                selectedValue = selectedState.value,
+                valueText = { it },
+                onValueSelected = { _ ->
+                    scope.launch { sheetState.hide() }.invokeOnCompletion {
+                        if (sheetState.isVisible.not()) {
+                            isDialogVisible = false
+                        }
+                    }
+                },
+                onDismiss = {
+                    scope.launch { sheetState.hide() }.invokeOnCompletion {
+                        if (sheetState.isVisible.not()) {
+                            isDialogVisible = false
+                        }
+                    }
+                },
+            )
+        }
+    },
+    parameters = {
+        val dataState = rememberViewCaseState("bs_hl_data", listOf("blue", "red", "green"))
+        val selectedState = rememberViewCaseState("bs_hl_selected", "green")
+
+        listOf(
+            ViewParameter.ListParameter(
+                label = "Items",
+                value = dataState.value,
+                onChange = { dataState.value = it }
+            ),
+            ViewParameter.ChoiceParameter(
+                label = "Selected Item",
+                options = dataState.value + "none",
+                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
+            )
+        )
+    }
+)

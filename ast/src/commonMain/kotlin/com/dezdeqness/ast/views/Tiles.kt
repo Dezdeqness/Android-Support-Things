@@ -93,3 +93,175 @@ val tileDefault = ViewCase(
     }
 )
 
+val tilePrefix = ViewCase(
+    title = "tilePrefix",
+    content = {
+        val textState = rememberViewCaseState("tile_prefix_text", "Action")
+        val widthState = rememberViewCaseState("tile_prefix_width", 250f)
+
+        AppTile(
+            modifier = Modifier.width(widthState.value.toInt().dp),
+            text = textState.value,
+            shape = RoundedCornerShape(12.dp),
+            prefixTitle = { modifier ->
+                Icon(
+                    Icons.Default.Settings,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val textState = rememberViewCaseState("tile_prefix_text", "Action")
+        val widthState = rememberViewCaseState("tile_prefix_width", 250f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Text",
+                value = textState.value,
+                onChange = { textState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Width",
+                value = widthState.value,
+                min = 100f,
+                max = 500f,
+                step = 10f,
+                onChange = { widthState.value = it }
+            )
+        )
+    }
+)
+
+val tileSuffix = ViewCase(
+    title = "tileSuffix",
+    content = {
+        val textState = rememberViewCaseState("tile_suffix_text", "Action")
+        val widthState = rememberViewCaseState("tile_suffix_width", 250f)
+
+        AppTile(
+            modifier = Modifier.width(widthState.value.toInt().dp),
+            text = textState.value,
+            shape = RoundedCornerShape(12.dp),
+            suffixTitle = { modifier ->
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val textState = rememberViewCaseState("tile_suffix_text", "Action")
+        val widthState = rememberViewCaseState("tile_suffix_width", 250f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Text",
+                value = textState.value,
+                onChange = { textState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Width",
+                value = widthState.value,
+                min = 100f,
+                max = 500f,
+                step = 10f,
+                onChange = { widthState.value = it }
+            )
+        )
+    }
+)
+
+val tileFull = ViewCase(
+    title = "tileFull",
+    content = {
+        val textState = rememberViewCaseState("tile_full_text", "Action")
+        val widthState = rememberViewCaseState("tile_full_width", 250f)
+
+        AppTile(
+            modifier = Modifier.width(widthState.value.toInt().dp),
+            text = textState.value,
+            shape = RoundedCornerShape(12.dp),
+            prefixTitle = { modifier ->
+                Icon(
+                    Icons.Default.Settings,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            suffixTitle = { modifier ->
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val textState = rememberViewCaseState("tile_full_text", "Action")
+        val widthState = rememberViewCaseState("tile_full_width", 250f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Text",
+                value = textState.value,
+                onChange = { textState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Width",
+                value = widthState.value,
+                min = 100f,
+                max = 500f,
+                step = 10f,
+                onChange = { widthState.value = it }
+            )
+        )
+    }
+)
+
+val tileNoShape = ViewCase(
+    title = "tileNoShape",
+    content = {
+        val textState = rememberViewCaseState("tile_no_shape_text", "Action")
+        val widthState = rememberViewCaseState("tile_no_shape_width", 250f)
+
+        AppTile(
+            modifier = Modifier.width(widthState.value.toInt().dp),
+            text = textState.value,
+            shape = null,
+            onClick = {},
+        )
+    },
+    parameters = {
+        val textState = rememberViewCaseState("tile_no_shape_text", "Action")
+        val widthState = rememberViewCaseState("tile_no_shape_width", 250f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Text",
+                value = textState.value,
+                onChange = { textState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Width",
+                value = widthState.value,
+                min = 100f,
+                max = 500f,
+                step = 10f,
+                onChange = { widthState.value = it }
+            )
+        )
+    }
+)
+

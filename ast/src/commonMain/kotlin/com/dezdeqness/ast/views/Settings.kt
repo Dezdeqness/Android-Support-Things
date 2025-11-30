@@ -254,3 +254,263 @@ val progressSettingsDefault = ViewCase(
         )
     }
 )
+
+val textSettingsDisabled = ViewCase(
+    title = "textSettingsDisabled",
+    content = {
+        val titleState = rememberViewCaseState("text_set_dis_title", "Choose theme")
+
+        TextSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = null,
+            enabled = false,
+            onClick = {},
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("text_set_dis_title", "Choose theme")
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            )
+        )
+    }
+)
+
+val textSettingsPrefix = ViewCase(
+    title = "textSettingsPrefix",
+    content = {
+        val titleState = rememberViewCaseState("text_set_pre_title", "Choose theme")
+
+        TextSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = null,
+            prefixIcon = { modifier ->
+                Icon(
+                    Icons.Default.Settings,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("text_set_pre_title", "Choose theme")
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            )
+        )
+    }
+)
+
+val textSettingsSuffix = ViewCase(
+    title = "textSettingsSuffix",
+    content = {
+        val titleState = rememberViewCaseState("text_set_suf_title", "Choose theme")
+
+        TextSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = null,
+            suffixIcon = { modifier ->
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("text_set_suf_title", "Choose theme")
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            )
+        )
+    }
+)
+
+val textSettingsFull = ViewCase(
+    title = "textSettingsFull",
+    content = {
+        val titleState = rememberViewCaseState("text_set_full_title", "Choose theme")
+        val subtitleState = rememberViewCaseState("text_set_full_subtitle", "Dark mode")
+
+        TextSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = subtitleState.value,
+            prefixIcon = { modifier ->
+                Icon(
+                    Icons.Default.Settings,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            suffixIcon = { modifier ->
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            onClick = {},
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("text_set_full_title", "Choose theme")
+        val subtitleState = rememberViewCaseState("text_set_full_subtitle", "Dark mode")
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            ),
+            ViewParameter.StringParameter(
+                label = "Subtitle",
+                value = subtitleState.value,
+                onChange = { subtitleState.value = it }
+            )
+        )
+    }
+)
+
+val headerSettingsColor = ViewCase(
+    title = "headerSettingsColor",
+    content = {
+        val titleState = rememberViewCaseState("hdr_set_col_title", "Settings")
+        val colorState = rememberViewCaseState("hdr_set_col_color", "#FFFF5722")
+
+        HeaderSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            titleColor = parseHexColor(colorState.value)
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("hdr_set_col_title", "Settings")
+        val colorState = rememberViewCaseState("hdr_set_col_color", "#FFFF5722")
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            ),
+            ViewParameter.ColorParameter(
+                label = "Title Color",
+                value = colorState.value,
+                onChange = { colorState.value = it }
+            )
+        )
+    }
+)
+
+val switchSettingsDisabled = ViewCase(
+    title = "switchSettingsDisabled",
+    content = {
+        val titleState = rememberViewCaseState("sw_set_dis_title", "Animations")
+        val checkedState = rememberViewCaseState("sw_set_dis_checked", false)
+
+        SwitchSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = null,
+            checked = checkedState.value,
+            enabled = false,
+            onCheckedChanged = {
+                checkedState.value = it
+            },
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("sw_set_dis_title", "Animations")
+        val checkedState = rememberViewCaseState("sw_set_dis_checked", false)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Checked",
+                value = checkedState.value,
+                onChange = { checkedState.value = it }
+            )
+        )
+    }
+)
+
+val switchSettingsFull = ViewCase(
+    title = "switchSettingsFull",
+    content = {
+        val titleState = rememberViewCaseState("sw_set_full_title", "Animations")
+        val subtitleState =
+            rememberViewCaseState("sw_set_full_subtitle", "Enable smooth animations")
+        val checkedState = rememberViewCaseState("sw_set_full_checked", true)
+
+        SwitchSettingsView(
+            modifier = Modifier.width(400.dp).clip(RoundedCornerShape(12.dp)),
+            title = titleState.value,
+            subtitle = subtitleState.value,
+            prefixIcon = { modifier ->
+                Icon(
+                    Icons.Default.Settings,
+                    modifier = modifier,
+                    contentDescription = null,
+                    tint = AppTheme.colors.textPrimary,
+                )
+            },
+            checked = checkedState.value,
+            enabled = true,
+            onCheckedChanged = {
+                checkedState.value = it
+            },
+        )
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("sw_set_full_title", "Animations")
+        val subtitleState =
+            rememberViewCaseState("sw_set_full_subtitle", "Enable smooth animations")
+        val checkedState = rememberViewCaseState("sw_set_full_checked", true)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            ),
+            ViewParameter.StringParameter(
+                label = "Subtitle",
+                value = subtitleState.value,
+                onChange = { subtitleState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Checked",
+                value = checkedState.value,
+                onChange = { checkedState.value = it }
+            )
+        )
+    }
+)

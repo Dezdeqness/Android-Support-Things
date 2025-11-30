@@ -59,3 +59,57 @@ val iconButtonDefault = ViewCase(
         )
     }
 )
+
+val iconFilledButtonDefault = ViewCase(
+    title = "iconFilledButtonDefault",
+    content = {
+        val cornerRadiusState = rememberViewCaseState("icon_filled_corner", 50f)
+
+        AppIconFilledButton(
+            icon = Icons.Default.Settings,
+            shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            onClick = {},
+        )
+    },
+    parameters = {
+        val cornerRadiusState = rememberViewCaseState("icon_filled_corner", 50f)
+
+        listOf(
+            ViewParameter.DensityParameter(
+                label = "Corner Radius",
+                value = cornerRadiusState.value,
+                min = 0f,
+                max = 50f,
+                step = 2f,
+                onChange = { cornerRadiusState.value = it }
+            ),
+        )
+    }
+)
+
+val iconOutlinedButtonDefault = ViewCase(
+    title = "iconOutlinedButtonDefault",
+    content = {
+        val cornerRadiusState = rememberViewCaseState("icon_outlined_corner", 50f)
+
+        AppOutlinedButton(
+            icon = Icons.Default.Settings,
+            shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            onClick = {},
+        )
+    },
+    parameters = {
+        val cornerRadiusState = rememberViewCaseState("icon_outlined_corner", 50f)
+
+        listOf(
+            ViewParameter.DensityParameter(
+                label = "Corner Radius",
+                value = cornerRadiusState.value,
+                min = 0f,
+                max = 50f,
+                step = 2f,
+                onChange = { cornerRadiusState.value = it }
+            ),
+        )
+    }
+)

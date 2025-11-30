@@ -64,3 +64,71 @@ val buttonDefault = ViewCase(
         )
     }
 )
+
+val buttonOutlined = ViewCase(
+    title = "buttonOutlined",
+    content = {
+        val buttonTextState = rememberViewCaseState("btn_out_text", "Authorize")
+        val cornerRadiusState = rememberViewCaseState("btn_out_corner", 12f)
+
+        AppOutlinedButton(
+            title = buttonTextState.value,
+            shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            onClick = {}
+        )
+    },
+    parameters = {
+        val buttonTextState = rememberViewCaseState("btn_out_text", "Authorize")
+        val cornerRadiusState = rememberViewCaseState("btn_out_corner", 12f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Button Text",
+                value = buttonTextState.value,
+                onChange = { buttonTextState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Corner Radius",
+                value = cornerRadiusState.value,
+                min = 0f,
+                max = 32f,
+                step = 4f,
+                onChange = { cornerRadiusState.value = it }
+            ),
+        )
+    }
+)
+
+val buttonText = ViewCase(
+    title = "buttonText",
+    content = {
+        val buttonTextState = rememberViewCaseState("btn_txt_text", "Authorize")
+        val cornerRadiusState = rememberViewCaseState("btn_txt_corner", 12f)
+
+        AppTextButton(
+            title = buttonTextState.value,
+            shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            onClick = {}
+        )
+    },
+    parameters = {
+        val buttonTextState = rememberViewCaseState("btn_txt_text", "Authorize")
+        val cornerRadiusState = rememberViewCaseState("btn_txt_corner", 12f)
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Button Text",
+                value = buttonTextState.value,
+                onChange = { buttonTextState.value = it }
+            ),
+            ViewParameter.DensityParameter(
+                label = "Corner Radius",
+                value = cornerRadiusState.value,
+                min = 0f,
+                max = 32f,
+                step = 4f,
+                onChange = { cornerRadiusState.value = it }
+            ),
+        )
+    }
+)
