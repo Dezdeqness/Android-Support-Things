@@ -11,6 +11,8 @@ import com.dezdeqness.ast.views.buttonDefault
 import com.dezdeqness.ast.views.buttonOutlined
 import com.dezdeqness.ast.views.buttonText
 import com.dezdeqness.ast.views.chipDefault
+import com.dezdeqness.ast.views.emptyStateDefault
+import com.dezdeqness.ast.views.errorStateDefault
 import com.dezdeqness.ast.views.headerDefault
 import com.dezdeqness.ast.views.headerIconLess
 import com.dezdeqness.ast.views.headerSettingsColor
@@ -279,6 +281,25 @@ fun App() {
                             )
                         )
                     )
+                ),
+                HierarchicalItem.Folder(
+                    id = "states",
+                    displayName = "States",
+                    level = 1,
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "states-error-state",
+                            displayName = "Error state",
+                            value = errorStateDefault,
+                            level = 2
+                        ),
+                        HierarchicalItem.Item(
+                            id = "states-empty-state",
+                            displayName = "Empty state",
+                            value = emptyStateDefault,
+                            level = 2
+                        ),
+                    ),
                 )
             )
         )
