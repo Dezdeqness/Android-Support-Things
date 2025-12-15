@@ -1,21 +1,20 @@
 package com.dezdeqness.ast.views
 
+import `android support things`.ast.generated.resources.Res
+import `android support things`.ast.generated.resources.android_logo
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
-import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.state.StateButtonConfig
 import com.dezdeqness.core.ui.views.state.StateButtonStyle
 import com.dezdeqness.core.ui.views.state.StateView
+import org.jetbrains.compose.resources.painterResource
 
 val errorStateDefault = ViewCase(
     title = "errorStateDefault",
@@ -38,11 +37,9 @@ val errorStateDefault = ViewCase(
             title = titleState.value,
             message = messageState.value.ifBlank { null },
             image = {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                Image(
+                    painter = painterResource(Res.drawable.android_logo),
                     contentDescription = null,
-                    tint = AppTheme.colors.accent,
-                    modifier = Modifier.width(96.dp),
                 )
             },
             buttons = buildList {
@@ -121,11 +118,9 @@ val emptyStateDefault = ViewCase(
             title = titleState.value,
             message = messageState.value.ifBlank { null },
             image = {
-                Icon(
-                    imageVector = Icons.Default.Home,
+                Image(
+                    painter = painterResource(Res.drawable.android_logo),
                     contentDescription = null,
-                    tint = AppTheme.colors.accent,
-                    modifier = Modifier.width(96.dp),
                 )
             },
             buttons = listOf(

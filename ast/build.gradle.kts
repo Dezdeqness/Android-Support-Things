@@ -14,6 +14,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.compose.material3)
             implementation(libs.material.icons.core)
+            implementation(compose.components.resources)
             implementation(libs.coil.compose)
             implementation(project(":core-ui"))
             implementation(project(":ast-viewbook-core"))

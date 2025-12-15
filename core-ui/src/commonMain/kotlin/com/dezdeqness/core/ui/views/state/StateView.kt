@@ -4,6 +4,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.dezdeqness.core.ui.theme.AppTheme
 
 @Composable
@@ -13,6 +15,7 @@ fun StateView(
     message: String? = null,
     image: @Composable () -> Unit,
     buttons: List<StateButtonConfig>,
+    spacing: Dp = 16.dp,
 ) {
     StateView(
         modifier = modifier,
@@ -24,6 +27,7 @@ fun StateView(
             ?.let { list ->
                 { StateButtonsRow(buttons = list) }
             },
+        spacing = spacing,
     )
 }
 
@@ -34,6 +38,7 @@ fun StateView(
     message: String? = null,
     image: @Composable () -> Unit,
     buttonsContent: (@Composable () -> Unit)? = null,
+    spacing: Dp = 16.dp,
 ) {
     BaseStateView(
         modifier = modifier,
@@ -59,5 +64,6 @@ fun StateView(
                 }
             },
         buttonsContent = buttonsContent,
+        spacing = spacing,
     )
 }
