@@ -33,10 +33,10 @@ sealed class ViewParameter {
         val onChange: (Float) -> Unit
     ) : ViewParameter()
 
-    data class ChoiceParameter(
+    data class ChoiceParameter<T>(
         override val label: String,
-        val options: List<String>,
-        val selectedIndex: Int,
+        val options: List<T>,
+        val selectedValue: T,
         val onChange: (Int) -> Unit
     ) : ViewParameter()
 

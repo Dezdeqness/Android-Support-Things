@@ -79,7 +79,7 @@ fun ParametersList(
                     FloatParameterView(parameter)
                 }
 
-                is ViewParameter.ChoiceParameter -> {
+                is ViewParameter.ChoiceParameter<*> -> {
                     ChoiceParameterView(parameter)
                 }
 
@@ -204,7 +204,7 @@ private fun FloatParameterView(parameter: ViewParameter.FloatParameter) {
 }
 
 @Composable
-private fun ChoiceParameterView(parameter: ViewParameter.ChoiceParameter) {
+private fun ChoiceParameterView(parameter: ViewParameter.ChoiceParameter<*>) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -221,7 +221,7 @@ private fun ChoiceParameterView(parameter: ViewParameter.ChoiceParameter) {
                     .clip(RoundedCornerShape(8.dp))
                     .clickable { parameter.onChange(index) }
                     .background(
-                        if (index == parameter.selectedIndex) {
+                        if (option == parameter.selectedValue) {
                             MaterialTheme.colorScheme.primaryContainer
                         } else {
                             MaterialTheme.colorScheme.surfaceVariant
@@ -231,9 +231,9 @@ private fun ChoiceParameterView(parameter: ViewParameter.ChoiceParameter) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = option,
+                    text = option.toString(),
                     style = MaterialTheme.typography.bodySmall,
-                    color = if (index == parameter.selectedIndex) {
+                    color = if (option == parameter.selectedValue) {
                         MaterialTheme.colorScheme.onPrimaryContainer
                     } else {
                         MaterialTheme.colorScheme.onSurfaceVariant

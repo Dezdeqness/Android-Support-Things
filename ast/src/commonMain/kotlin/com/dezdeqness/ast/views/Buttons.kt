@@ -45,7 +45,7 @@ val buttonDefault = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Button Type",
                 options = listOf("Filled", "Outlined", "Text"),
-                selectedIndex = buttonTypeState.value,
+                selectedValue = buttonTypeState.value,
                 onChange = { buttonTypeState.value = it }
             ),
             ViewParameter.StringParameter(

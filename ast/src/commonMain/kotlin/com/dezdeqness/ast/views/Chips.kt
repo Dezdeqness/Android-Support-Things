@@ -23,7 +23,7 @@ val chipDefault = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Chip Title",
                 options = chipTitleOptions,
-                selectedIndex = selectedChipIndex.value,
+                selectedValue = selectedChipIndex.value,
                 onChange = { selectedChipIndex.value = it }
             ),
         )

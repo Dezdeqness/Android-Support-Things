@@ -45,7 +45,7 @@ val iconButtonDefault = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Button Style",
                 options = listOf("Filled", "Outlined", "Standard"),
-                selectedIndex = buttonTypeState.value,
+                selectedValue = buttonTypeState.value,
                 onChange = { buttonTypeState.value = it }
             ),
             ViewParameter.DensityParameter(

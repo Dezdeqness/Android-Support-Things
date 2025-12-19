@@ -85,7 +85,7 @@ val singleChoiceDialogDefault = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Selected Item",
                 options = dataState.value + "none",
-                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                selectedValue = selectedState.value,
                 onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
             )
         )
@@ -161,7 +161,7 @@ val singleChoiceBottomSheetDefault = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Selected Item",
                 options = dataState.value + "none",
-                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                selectedValue = selectedState.value,
                 onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
             )
         )
@@ -221,7 +221,7 @@ val singleChoiceDialogHeaderLess = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Selected Item",
                 options = dataState.value + "none",
-                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                selectedValue = selectedState.value,
                 onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
             )
         )
@@ -283,7 +283,7 @@ val singleChoiceBottomSheetHeaderLess = ViewCase(
             ViewParameter.ChoiceParameter(
                 label = "Selected Item",
                 options = dataState.value + "none",
-                selectedIndex = dataState.value.indexOf(selectedState.value).coerceAtLeast(0),
+                selectedValue = selectedState.value,
                 onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
             )
         )
