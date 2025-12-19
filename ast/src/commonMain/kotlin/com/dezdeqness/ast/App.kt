@@ -22,6 +22,8 @@ import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
 import com.dezdeqness.ast.views.progressSettingsDefault
+import com.dezdeqness.ast.views.shimmerDefault
+import com.dezdeqness.ast.views.shimmerOneWave
 import com.dezdeqness.ast.views.singleChoiceBottomSheetDefault
 import com.dezdeqness.ast.views.singleChoiceBottomSheetHeaderLess
 import com.dezdeqness.ast.views.singleChoiceDialogDefault
@@ -300,6 +302,25 @@ fun App() {
                             level = 2
                         ),
                     ),
+                ),
+                HierarchicalItem.Folder(
+                    id = "shimmer",
+                    displayName = "Shimmer",
+                    level = 1,
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "shimmer-default",
+                            displayName = "Shimmer Default",
+                            value = shimmerDefault,
+                            level = 2,
+                        ),
+                        HierarchicalItem.Item(
+                            id = "shimmer-one-wave",
+                            displayName = "Shimmer One Wave",
+                            value = shimmerOneWave,
+                            level = 2,
+                        ),
+                    )
                 )
             )
         )
