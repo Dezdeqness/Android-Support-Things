@@ -49,6 +49,7 @@ fun Header(
     titleStyle: TextStyle = AppTheme.typography.labelLarge.copy(fontSize = 20.sp),
     titleColor: Color = AppTheme.colors.textPrimary,
     icon: ImageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,
+    iconContentDescription: String? = null,
     iconColor: Color = AppTheme.colors.onSurface,
     contentColor: Color = AppTheme.colors.background,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -76,7 +77,7 @@ fun Header(
         if (onClick != null) {
             Icon(
                 icon,
-                contentDescription = null,
+                contentDescription = iconContentDescription,
                 tint = iconColor,
             )
         }

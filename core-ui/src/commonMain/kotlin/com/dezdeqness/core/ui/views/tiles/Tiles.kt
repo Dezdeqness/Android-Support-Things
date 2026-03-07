@@ -39,7 +39,7 @@ fun AppTile(
 ) {
     Row(
         modifier = modifier
-            .clip(shape ?: RoundedCornerShape(0.dp))
+            .then(if (shape != null) Modifier.clip(shape) else Modifier)
             .background(contentColor)
             .clickable(
                 onClick = onClick ?: {},

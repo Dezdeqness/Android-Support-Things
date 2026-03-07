@@ -99,8 +99,10 @@ fun SearchTextField(
     )
 }
 
-class SearchState {
-    var query by mutableStateOf("")
+class SearchState(
+    initialQuery: String = "",
+) {
+    var query by mutableStateOf(initialQuery)
         private set
 
     var hasUserInteracted = false
@@ -128,6 +130,8 @@ class SearchState {
 }
 
 @Composable
-fun rememberSearchState() = rememberSaveable(saver = SearchState.Saver) {
-    SearchState()
+fun rememberSearchState(
+    initialQuery: String = "",
+) = rememberSaveable(saver = SearchState.Saver) {
+    SearchState(initialQuery = initialQuery)
 }

@@ -26,14 +26,14 @@ import com.dezdeqness.core.ui.theme.AppTheme
 private const val DEFAULT_WIDTH_SHADOW_BRUSH = 700
 private const val DEFAULT_DURATION = 1500
 private const val DEFAULT_ONE_WAVE_DURATION = 2300
-private const val DEFAULT_ANGLE_AXIS_X = 270f
+private const val DEFAULT_ANGLE_AXIS_Y = 270f
 private val DEFAULT_COLOR = Color.LightGray
 
 @Composable
 fun Modifier.shimmer(
     shape: Shape = AppTheme.shapes.medium,
     widthOfShadowBrush: Int = DEFAULT_WIDTH_SHADOW_BRUSH,
-    angleOfAxisY: Float = DEFAULT_ANGLE_AXIS_X,
+    angleOfAxisY: Float = DEFAULT_ANGLE_AXIS_Y,
     durationMillis: Int = DEFAULT_DURATION,
     color: Color = Color.Unspecified
 ): Modifier = composed {
@@ -103,7 +103,7 @@ fun Modifier.shimmer(
     shimmerOffset: Float,
     shape: Shape = AppTheme.shapes.medium,
     widthOfShadowBrush: Int = DEFAULT_WIDTH_SHADOW_BRUSH,
-    angleOfAxisY: Float = DEFAULT_ANGLE_AXIS_X,
+    angleOfAxisY: Float = DEFAULT_ANGLE_AXIS_Y,
     color: Color = Color.Unspecified
 ): Modifier = composed {
 

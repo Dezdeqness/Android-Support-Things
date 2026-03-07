@@ -66,7 +66,7 @@ fun ProgressSettingsView(
     title: @Composable ColumnScope.() -> Unit,
     subTitle: @Composable ColumnScope.() -> Unit,
     progress: @Composable ColumnScope.() -> Unit,
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color = AppTheme.colors.background,
     contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
 ) {
     Box(

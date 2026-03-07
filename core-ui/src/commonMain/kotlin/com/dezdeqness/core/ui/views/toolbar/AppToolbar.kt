@@ -25,6 +25,7 @@ fun AppToolbar(
     titleColor: Color = AppTheme.colors.textPrimary,
     colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(containerColor = AppTheme.colors.background),
     navigationIcon: ImageVector? = Icons.AutoMirrored.Filled.ArrowBack,
+    navigationContentDescription: String? = null,
     navigationColor: Color = AppTheme.colors.onSurface,
     navigationClick: () -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
@@ -43,7 +44,7 @@ fun AppToolbar(
                 IconButton(onClick = navigationClick) {
                     Icon(
                         navigationIcon,
-                        contentDescription = "Back button",
+                        contentDescription = navigationContentDescription,
                         tint = navigationColor,
                     )
                 }

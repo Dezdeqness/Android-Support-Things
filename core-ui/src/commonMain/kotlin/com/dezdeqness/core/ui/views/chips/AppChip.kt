@@ -23,6 +23,7 @@ fun AppChip(
         containerColor = AppTheme.colors.onPrimary,
         selectedContainerColor = AppTheme.colors.onPrimary
     ),
+    selected: Boolean = false,
     onClick: (() -> Unit)? = null,
 ) {
     FilterChip(
@@ -40,6 +41,6 @@ fun AppChip(
         colors = colors,
         shape = shape,
         elevation = null,
-        selected = false,
+        selected = selected,
     )
 }
