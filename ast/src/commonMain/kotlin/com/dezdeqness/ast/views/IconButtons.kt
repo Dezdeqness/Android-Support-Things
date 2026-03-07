@@ -9,24 +9,27 @@ import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.buttons.AppIconButton
 import com.dezdeqness.core.ui.views.buttons.AppIconFilledButton
-import com.dezdeqness.core.ui.views.buttons.AppOutlinedButton
+import com.dezdeqness.core.ui.views.buttons.AppIconOutlinedButton
 
 val iconButtonDefault = ViewCase(
     title = "iconButtonDefault",
     content = {
         val buttonTypeState = rememberViewCaseState("icon_btn_type", 0)
         val cornerRadiusState = rememberViewCaseState("tile_corner", 50f)
+        val enabledState = rememberViewCaseState("icon_btn_enabled", true)
 
         when (buttonTypeState.value) {
             0 -> AppIconFilledButton(
                 icon = Icons.Default.Settings,
                 shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
                 onClick = {},
             )
 
-            1 -> AppOutlinedButton(
+            1 -> AppIconOutlinedButton(
                 icon = Icons.Default.Settings,
                 shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
                 onClick = {},
             )
 
@@ -40,6 +43,7 @@ val iconButtonDefault = ViewCase(
     parameters = {
         val buttonTypeState = rememberViewCaseState("icon_btn_type", 0)
         val cornerRadiusState = rememberViewCaseState("tile_corner", 12f)
+        val enabledState = rememberViewCaseState("icon_btn_enabled", true)
 
         listOf(
             ViewParameter.ChoiceParameter(
@@ -56,6 +60,11 @@ val iconButtonDefault = ViewCase(
                 step = 2f,
                 onChange = { cornerRadiusState.value = it }
             ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
+            ),
         )
     }
 )
@@ -64,15 +73,18 @@ val iconFilledButtonDefault = ViewCase(
     title = "iconFilledButtonDefault",
     content = {
         val cornerRadiusState = rememberViewCaseState("icon_filled_corner", 50f)
+        val enabledState = rememberViewCaseState("icon_filled_enabled", true)
 
         AppIconFilledButton(
             icon = Icons.Default.Settings,
             shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            enabled = enabledState.value,
             onClick = {},
         )
     },
     parameters = {
         val cornerRadiusState = rememberViewCaseState("icon_filled_corner", 50f)
+        val enabledState = rememberViewCaseState("icon_filled_enabled", true)
 
         listOf(
             ViewParameter.DensityParameter(
@@ -83,6 +95,11 @@ val iconFilledButtonDefault = ViewCase(
                 step = 2f,
                 onChange = { cornerRadiusState.value = it }
             ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
+            ),
         )
     }
 )
@@ -91,15 +108,18 @@ val iconOutlinedButtonDefault = ViewCase(
     title = "iconOutlinedButtonDefault",
     content = {
         val cornerRadiusState = rememberViewCaseState("icon_outlined_corner", 50f)
+        val enabledState = rememberViewCaseState("icon_outlined_enabled", true)
 
-        AppOutlinedButton(
+        AppIconOutlinedButton(
             icon = Icons.Default.Settings,
             shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            enabled = enabledState.value,
             onClick = {},
         )
     },
     parameters = {
         val cornerRadiusState = rememberViewCaseState("icon_outlined_corner", 50f)
+        val enabledState = rememberViewCaseState("icon_outlined_enabled", true)
 
         listOf(
             ViewParameter.DensityParameter(
@@ -109,6 +129,11 @@ val iconOutlinedButtonDefault = ViewCase(
                 max = 50f,
                 step = 2f,
                 onChange = { cornerRadiusState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
             ),
         )
     }

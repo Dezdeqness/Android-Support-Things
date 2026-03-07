@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.core.ui.theme.AppTheme
-import com.dezdeqness.core.ui.views.buttons.AppButton
-import com.dezdeqness.core.ui.views.buttons.AppOutlinedButton
+import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
+import com.dezdeqness.core.ui.views.buttons.AppSecondaryButton
 import com.dezdeqness.core.ui.views.buttons.AppTextButton
 
 @Composable
@@ -23,19 +23,23 @@ fun StateButtonsRow(
         buttons.forEach { config ->
             when (config.style) {
                 StateButtonStyle.Primary -> {
-                    AppButton(
+                    AppPrimaryButton(
                         modifier = config.modifier,
                         title = config.title,
                         titleStyle = AppTheme.typography.titleMedium,
+                        enabled = config.enabled,
+                        isLoading = config.isLoading,
                         onClick = config.onClick,
                     )
                 }
 
                 StateButtonStyle.Secondary -> {
-                    AppOutlinedButton(
+                    AppSecondaryButton(
                         modifier = config.modifier,
                         title = config.title,
                         titleStyle = AppTheme.typography.titleMedium,
+                        enabled = config.enabled,
+                        isLoading = config.isLoading,
                         onClick = config.onClick,
                     )
                 }
@@ -45,6 +49,8 @@ fun StateButtonsRow(
                         modifier = config.modifier,
                         title = config.title,
                         titleStyle = AppTheme.typography.titleMedium,
+                        enabled = config.enabled,
+                        isLoading = config.isLoading,
                         onClick = config.onClick,
                     )
                 }
@@ -64,4 +70,6 @@ data class StateButtonConfig(
     val onClick: () -> Unit,
     val style: StateButtonStyle = StateButtonStyle.Primary,
     val modifier: Modifier = Modifier,
+    val enabled: Boolean = true,
+    val isLoading: Boolean = false,
 )

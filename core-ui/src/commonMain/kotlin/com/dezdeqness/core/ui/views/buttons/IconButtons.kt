@@ -27,19 +27,22 @@ fun AppIconFilledButton(
     modifier: Modifier = Modifier,
     icon: ImageVector,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
+        enabled = enabled,
         shape = shape,
         contentColor = contentColor,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
@@ -48,65 +51,74 @@ fun AppIconFilledButton(
     modifier: Modifier = Modifier,
     icon: Painter,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
+        enabled = enabled,
         shape = shape,
         contentColor = contentColor,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
 @Composable
-fun AppOutlinedButton(
+fun AppIconOutlinedButton(
     modifier: Modifier = Modifier,
     icon: ImageVector,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     borderStroke: BorderStroke = BorderStroke(1.dp, AppTheme.colors.secondary),
     contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
+        enabled = enabled,
         shape = shape,
         borderStroke = borderStroke,
         contentColor = contentColor,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
 @Composable
-fun AppOutlinedButton(
+fun AppIconOutlinedButton(
     modifier: Modifier = Modifier,
     icon: Painter,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     borderStroke: BorderStroke = BorderStroke(1.dp, AppTheme.colors.secondary),
     contentColor: Color = AppTheme.colors.onPrimary,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
+        enabled = enabled,
         shape = shape,
         borderStroke = borderStroke,
         contentColor = contentColor,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
@@ -118,15 +130,16 @@ fun AppIconButton(
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
         shape = shape,
-        contentColor = Color.Transparent,
+        contentColor = null,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
@@ -135,18 +148,21 @@ fun AppIconButton(
     modifier: Modifier = Modifier,
     icon: Painter,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     tint: Color = AppTheme.colors.onSurface,
     shape: Shape = CircleShape,
     contentPadding: PaddingValues = PaddingValues(8.dp),
+    contentDescription: String? = null,
 ) {
     AppIconButton(
         modifier = modifier,
         onClick = onClick,
+        enabled = enabled,
         shape = shape,
-        contentColor = Color.Transparent,
+        contentColor = null,
         contentPadding = contentPadding,
     ) {
-        Icon(icon, contentDescription = null, tint = tint)
+        Icon(icon, contentDescription = contentDescription, tint = tint)
     }
 }
 
@@ -154,21 +170,34 @@ fun AppIconButton(
 fun AppIconButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    enabled: Boolean = true,
     shape: Shape = CircleShape,
     borderStroke: BorderStroke = BorderStroke(0.dp, Color.Transparent),
-    contentColor: Color = AppTheme.colors.onPrimary,
+    contentColor: Color? = null,
     contentPadding: PaddingValues = PaddingValues(8.dp),
     content: @Composable () -> Unit,
 ) {
+    val alpha = if (enabled) 1f else 0.38f
+    val backgroundModifier = if (contentColor != null) {
+        Modifier.background(contentColor.copy(alpha = alpha))
+    } else {
+        Modifier
+    }
     Box(
         modifier = modifier
             .clip(shape)
             .border(border = borderStroke, shape = shape)
-            .background(contentColor)
-            .clickable(
-                onClick = onClick,
-                interactionSource = remember { MutableInteractionSource() },
-                indication = ripple(color = AppTheme.colors.ripple)
+            .then(backgroundModifier)
+            .then(
+                if (enabled) {
+                    Modifier.clickable(
+                        onClick = onClick,
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = ripple(color = AppTheme.colors.ripple),
+                    )
+                } else {
+                    Modifier
+                }
             )
             .padding(contentPadding)
     ) {

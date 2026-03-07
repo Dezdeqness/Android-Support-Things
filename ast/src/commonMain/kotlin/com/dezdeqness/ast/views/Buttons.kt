@@ -1,12 +1,18 @@
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.Icon
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
-import com.dezdeqness.core.ui.views.buttons.AppButton
-import com.dezdeqness.core.ui.views.buttons.AppOutlinedButton
+import com.dezdeqness.core.ui.views.buttons.AppAccentButton
+import com.dezdeqness.core.ui.views.buttons.AppErrorButton
+import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
+import com.dezdeqness.core.ui.views.buttons.AppSecondaryButton
 import com.dezdeqness.core.ui.views.buttons.AppTextButton
 
 val buttonDefault = ViewCase(
@@ -15,23 +21,69 @@ val buttonDefault = ViewCase(
         val buttonTextState = rememberViewCaseState("btn_text", "Authorize")
         val buttonTypeState = rememberViewCaseState("btn_type", 0)
         val cornerRadiusState = rememberViewCaseState("tile_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_enabled", true)
+        val loadingState = rememberViewCaseState("btn_loading", false)
+        val leadingIconState = rememberViewCaseState("btn_leading", false)
+        val trailingIconState = rememberViewCaseState("btn_trailing", false)
+
+        val leadingIcon: @androidx.compose.runtime.Composable (() -> Unit)? =
+            if (leadingIconState.value) {
+                { Icon(Icons.Default.Add, contentDescription = null) }
+            } else null
+
+        val trailingIcon: @androidx.compose.runtime.Composable (() -> Unit)? =
+            if (trailingIconState.value) {
+                { Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null) }
+            } else null
 
         when (buttonTypeState.value) {
-            0 -> AppButton(
+            0 -> AppPrimaryButton(
                 title = buttonTextState.value,
                 shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
+                isLoading = loadingState.value,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 onClick = {}
             )
 
-            1 -> AppOutlinedButton(
+            1 -> AppSecondaryButton(
                 title = buttonTextState.value,
                 shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
+                isLoading = loadingState.value,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 onClick = {}
             )
 
             2 -> AppTextButton(
                 title = buttonTextState.value,
                 shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
+                isLoading = loadingState.value,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
+                onClick = {}
+            )
+
+            3 -> AppAccentButton(
+                title = buttonTextState.value,
+                shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
+                isLoading = loadingState.value,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
+                onClick = {}
+            )
+
+            4 -> AppErrorButton(
+                title = buttonTextState.value,
+                shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+                enabled = enabledState.value,
+                isLoading = loadingState.value,
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 onClick = {}
             )
         }
@@ -40,11 +92,15 @@ val buttonDefault = ViewCase(
         val buttonTextState = rememberViewCaseState("btn_text", "Authorize")
         val buttonTypeState = rememberViewCaseState("btn_type", 0)
         val cornerRadiusState = rememberViewCaseState("tile_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_enabled", true)
+        val loadingState = rememberViewCaseState("btn_loading", false)
+        val leadingIconState = rememberViewCaseState("btn_leading", false)
+        val trailingIconState = rememberViewCaseState("btn_trailing", false)
 
         listOf(
             ViewParameter.ChoiceParameter(
                 label = "Button Type",
-                options = listOf("Filled", "Outlined", "Text"),
+                options = listOf("Primary", "Secondary", "Text", "Accent", "Error"),
                 selectedValue = buttonTypeState.value,
                 onChange = { buttonTypeState.value = it }
             ),
@@ -61,6 +117,26 @@ val buttonDefault = ViewCase(
                 step = 4f,
                 onChange = { cornerRadiusState.value = it }
             ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Loading",
+                value = loadingState.value,
+                onChange = { loadingState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Leading Icon",
+                value = leadingIconState.value,
+                onChange = { leadingIconState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Trailing Icon",
+                value = trailingIconState.value,
+                onChange = { trailingIconState.value = it }
+            ),
         )
     }
 )
@@ -70,16 +146,22 @@ val buttonOutlined = ViewCase(
     content = {
         val buttonTextState = rememberViewCaseState("btn_out_text", "Authorize")
         val cornerRadiusState = rememberViewCaseState("btn_out_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_out_enabled", true)
+        val loadingState = rememberViewCaseState("btn_out_loading", false)
 
-        AppOutlinedButton(
+        AppSecondaryButton(
             title = buttonTextState.value,
             shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            enabled = enabledState.value,
+            isLoading = loadingState.value,
             onClick = {}
         )
     },
     parameters = {
         val buttonTextState = rememberViewCaseState("btn_out_text", "Authorize")
         val cornerRadiusState = rememberViewCaseState("btn_out_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_out_enabled", true)
+        val loadingState = rememberViewCaseState("btn_out_loading", false)
 
         listOf(
             ViewParameter.StringParameter(
@@ -94,6 +176,16 @@ val buttonOutlined = ViewCase(
                 max = 32f,
                 step = 4f,
                 onChange = { cornerRadiusState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Loading",
+                value = loadingState.value,
+                onChange = { loadingState.value = it }
             ),
         )
     }
@@ -104,16 +196,22 @@ val buttonText = ViewCase(
     content = {
         val buttonTextState = rememberViewCaseState("btn_txt_text", "Authorize")
         val cornerRadiusState = rememberViewCaseState("btn_txt_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_txt_enabled", true)
+        val loadingState = rememberViewCaseState("btn_txt_loading", false)
 
         AppTextButton(
             title = buttonTextState.value,
             shape = RoundedCornerShape(cornerRadiusState.value.toInt().dp),
+            enabled = enabledState.value,
+            isLoading = loadingState.value,
             onClick = {}
         )
     },
     parameters = {
         val buttonTextState = rememberViewCaseState("btn_txt_text", "Authorize")
         val cornerRadiusState = rememberViewCaseState("btn_txt_corner", 12f)
+        val enabledState = rememberViewCaseState("btn_txt_enabled", true)
+        val loadingState = rememberViewCaseState("btn_txt_loading", false)
 
         listOf(
             ViewParameter.StringParameter(
@@ -128,6 +226,16 @@ val buttonText = ViewCase(
                 max = 32f,
                 step = 4f,
                 onChange = { cornerRadiusState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Enabled",
+                value = enabledState.value,
+                onChange = { enabledState.value = it }
+            ),
+            ViewParameter.BooleanParameter(
+                label = "Loading",
+                value = loadingState.value,
+                onChange = { loadingState.value = it }
             ),
         )
     }

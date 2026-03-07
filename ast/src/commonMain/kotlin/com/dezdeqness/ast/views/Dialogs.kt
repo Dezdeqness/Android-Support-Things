@@ -14,7 +14,7 @@ import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.bottomsheet.SingleChoiceBottomSheet
-import com.dezdeqness.core.ui.views.buttons.AppButton
+import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
 import com.dezdeqness.core.ui.views.dialogs.SingleChoiceDialog
 import kotlinx.coroutines.launch
 
@@ -28,7 +28,7 @@ val singleChoiceDialogDefault = ViewCase(
         val selectedState = rememberViewCaseState("dlg_selected", "green")
         var isDialogVisible by remember { mutableStateOf(false) }
 
-        AppButton(
+        AppPrimaryButton(
             title = "Click",
             onClick = {
                 isDialogVisible = true
@@ -105,7 +105,7 @@ val singleChoiceBottomSheetDefault = ViewCase(
         val sheetState = rememberModalBottomSheetState()
         var isDialogVisible by remember { mutableStateOf(false) }
 
-        AppButton(
+        AppPrimaryButton(
             title = "Click",
             onClick = {
                 isDialogVisible = true
@@ -176,7 +176,7 @@ val singleChoiceDialogHeaderLess = ViewCase(
         val selectedState = rememberViewCaseState("dlg_hl_selected", "green")
         var isDialogVisible by remember { mutableStateOf(false) }
 
-        AppButton(
+        AppPrimaryButton(
             title = "Click",
             onClick = {
                 isDialogVisible = true
@@ -239,7 +239,7 @@ val singleChoiceBottomSheetHeaderLess = ViewCase(
         val sheetState = rememberModalBottomSheetState()
         var isDialogVisible by remember { mutableStateOf(false) }
 
-        AppButton(
+        AppPrimaryButton(
             title = "Click",
             onClick = {
                 isDialogVisible = true
