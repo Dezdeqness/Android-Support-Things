@@ -64,7 +64,6 @@ fun ExpandableText(
                         val adjustText = text
                             .substring(startIndex = 0, endIndex = lastCharIndex)
                             .dropLast(showMoreLabel.length)
-                            .dropLastWhile { Character.isWhitespace(it) || it == '.' }
                         append(adjustText)
                         withStyle(style = labelStyle) { append(showMoreLabel) }
                     }
