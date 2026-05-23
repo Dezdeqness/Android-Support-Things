@@ -6,22 +6,34 @@ import androidx.compose.runtime.remember
 import com.dezdeqness.ast.viewbook.core.ViewBook
 import com.dezdeqness.ast.viewbook.core.ViewBookState
 import com.dezdeqness.ast.viewbook.core.ui.HierarchicalItem
+import com.dezdeqness.ast.views.adaptiveLayoutDefault
+import com.dezdeqness.ast.views.adaptiveViewCollectionDefault
+import com.dezdeqness.ast.views.animatedLoadingBarsDefault
 import com.dezdeqness.ast.views.appSectionDefault
+import com.dezdeqness.ast.views.appTextFieldDefault
 import com.dezdeqness.ast.views.buttonDefault
 import com.dezdeqness.ast.views.buttonOutlined
 import com.dezdeqness.ast.views.buttonText
 import com.dezdeqness.ast.views.chipDefault
+import com.dezdeqness.ast.views.diagramChartDefault
 import com.dezdeqness.ast.views.emptyStateDefault
 import com.dezdeqness.ast.views.errorStateDefault
+import com.dezdeqness.ast.views.expandableContentDefault
+import com.dezdeqness.ast.views.expandableTextDefault
 import com.dezdeqness.ast.views.headerDefault
 import com.dezdeqness.ast.views.headerIconLess
 import com.dezdeqness.ast.views.headerSettingsColor
 import com.dezdeqness.ast.views.headerSettingsDefault
 import com.dezdeqness.ast.views.headerShaped
+import com.dezdeqness.ast.views.horizontalChartDefault
 import com.dezdeqness.ast.views.iconButtonDefault
 import com.dezdeqness.ast.views.iconFilledButtonDefault
 import com.dezdeqness.ast.views.iconOutlinedButtonDefault
+import com.dezdeqness.ast.views.metadataRowDefault
+import com.dezdeqness.ast.views.metadataRowList
+import com.dezdeqness.ast.views.multiSelectDialogDefault
 import com.dezdeqness.ast.views.progressSettingsDefault
+import com.dezdeqness.ast.views.searchTextFieldDefault
 import com.dezdeqness.ast.views.shimmerDefault
 import com.dezdeqness.ast.views.shimmerOneWave
 import com.dezdeqness.ast.views.singleChoiceBottomSheetDefault
@@ -41,6 +53,7 @@ import com.dezdeqness.ast.views.tileFull
 import com.dezdeqness.ast.views.tileNoShape
 import com.dezdeqness.ast.views.tilePrefix
 import com.dezdeqness.ast.views.tileSuffix
+import com.dezdeqness.ast.views.toolbarDefault
 import com.dezdeqness.core.ui.theme.AppTheme
 
 @Composable
@@ -86,7 +99,7 @@ fun App() {
                             id = "icon-button-default",
                             displayName = "Icon Button Default",
                             value = iconButtonDefault
-                        )
+                        ),
                     )
                 ),
                 HierarchicalItem.Folder(
@@ -241,6 +254,81 @@ fun App() {
                     )
                 ),
                 HierarchicalItem.Folder(
+                    id = "toolbar",
+                    displayName = "Toolbar",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "toolbar-default",
+                            displayName = "Toolbar Default",
+                            value = toolbarDefault
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "text-fields",
+                    displayName = "Text Fields",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "app-text-field-default",
+                            displayName = "App Text Field",
+                            value = appTextFieldDefault
+                        ),
+                        HierarchicalItem.Item(
+                            id = "search-text-field-default",
+                            displayName = "Search Text Field",
+                            value = searchTextFieldDefault
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "expandable",
+                    displayName = "Expandable",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "expandable-content-default",
+                            displayName = "Expandable Content",
+                            value = expandableContentDefault
+                        ),
+                        HierarchicalItem.Item(
+                            id = "expandable-text-default",
+                            displayName = "Expandable Text",
+                            value = expandableTextDefault
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "charts",
+                    displayName = "Charts",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "diagram-chart-default",
+                            displayName = "Diagram Chart",
+                            value = diagramChartDefault
+                        ),
+                        HierarchicalItem.Item(
+                            id = "horizontal-chart-default",
+                            displayName = "Horizontal Chart",
+                            value = horizontalChartDefault
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "metadata",
+                    displayName = "Metadata",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "metadata-row-default",
+                            displayName = "Metadata Row",
+                            value = metadataRowDefault
+                        ),
+                        HierarchicalItem.Item(
+                            id = "metadata-row-list",
+                            displayName = "Metadata Row List",
+                            value = metadataRowList
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
                     id = "dialogs",
                     displayName = "Dialogs",
                     children = listOf(
@@ -281,7 +369,13 @@ fun App() {
                                     level = 2
                                 )
                             )
-                        )
+                        ),
+                        HierarchicalItem.Item(
+                            id = "multi-select-dialog-default",
+                            displayName = "Multi Select Dialog",
+                            value = multiSelectDialogDefault,
+                            level = 1,
+                        ),
                     )
                 ),
                 HierarchicalItem.Folder(
@@ -319,6 +413,35 @@ fun App() {
                             displayName = "Shimmer One Wave",
                             value = shimmerOneWave,
                             level = 2,
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "loading",
+                    displayName = "Loading",
+                    level = 1,
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "animated-loading-bars-default",
+                            displayName = "Animated Loading Bars",
+                            value = animatedLoadingBarsDefault,
+                            level = 2,
+                        ),
+                    )
+                ),
+                HierarchicalItem.Folder(
+                    id = "layouts",
+                    displayName = "Layouts",
+                    children = listOf(
+                        HierarchicalItem.Item(
+                            id = "adaptive-layout-default",
+                            displayName = "Adaptive Layout",
+                            value = adaptiveLayoutDefault
+                        ),
+                        HierarchicalItem.Item(
+                            id = "adaptive-view-collection-default",
+                            displayName = "Adaptive View Collection",
+                            value = adaptiveViewCollectionDefault
                         ),
                     )
                 )

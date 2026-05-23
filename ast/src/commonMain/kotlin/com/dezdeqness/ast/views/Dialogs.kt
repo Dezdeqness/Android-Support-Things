@@ -15,6 +15,7 @@ import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.bottomsheet.SingleChoiceBottomSheet
 import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
+import com.dezdeqness.core.ui.views.dialogs.MultiSelectDialog
 import com.dezdeqness.core.ui.views.dialogs.SingleChoiceDialog
 import kotlinx.coroutines.launch
 
@@ -224,6 +225,68 @@ val singleChoiceDialogHeaderLess = ViewCase(
                 selectedValue = selectedState.value,
                 onChange = { selectedState.value = dataState.value.getOrNull(it) ?: "" }
             )
+        )
+    }
+)
+
+val multiSelectDialogDefault = ViewCase(
+    title = "multiSelectDialogDefault",
+    content = {
+        val titleState = rememberViewCaseState("msd_title", "Select genres")
+        val dataState = rememberViewCaseState(
+            "msd_data",
+            listOf("Action", "Comedy", "Drama", "Romance", "Sci-Fi")
+        )
+        val selectedState = rememberViewCaseState("msd_selected", listOf("Action", "Drama"))
+        var isDialogVisible by remember { mutableStateOf(false) }
+
+        AppPrimaryButton(
+            title = "Click",
+            onClick = {
+                isDialogVisible = true
+            }
+        )
+
+        if (isDialogVisible) {
+            MultiSelectDialog(
+                title = titleState.value,
+                items = dataState.value,
+                selectedItems = selectedState.value,
+                itemText = { it },
+                onConfirm = { selected ->
+                    selectedState.value = selected
+                    isDialogVisible = false
+                },
+                onDismiss = {
+                    isDialogVisible = false
+                },
+            )
+        }
+    },
+    parameters = {
+        val titleState = rememberViewCaseState("msd_title", "Select genres")
+        val dataState = rememberViewCaseState(
+            "msd_data",
+            listOf("Action", "Comedy", "Drama", "Romance", "Sci-Fi")
+        )
+        val selectedState = rememberViewCaseState("msd_selected", listOf("Action", "Drama"))
+
+        listOf(
+            ViewParameter.StringParameter(
+                label = "Title",
+                value = titleState.value,
+                onChange = { titleState.value = it }
+            ),
+            ViewParameter.ListParameter(
+                label = "Items",
+                value = dataState.value,
+                onChange = { dataState.value = it }
+            ),
+            ViewParameter.ListParameter(
+                label = "Selected Items",
+                value = selectedState.value,
+                onChange = { selectedState.value = it }
+            ),
         )
     }
 )
