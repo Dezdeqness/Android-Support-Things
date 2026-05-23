@@ -179,7 +179,7 @@ fun AppIconButton(
 ) {
     val alpha = if (enabled) 1f else 0.38f
     val backgroundModifier = if (contentColor != null) {
-        Modifier.background(contentColor.copy(alpha = alpha))
+        Modifier.background(contentColor.copy(alpha = contentColor.alpha * alpha))
     } else {
         Modifier
     }

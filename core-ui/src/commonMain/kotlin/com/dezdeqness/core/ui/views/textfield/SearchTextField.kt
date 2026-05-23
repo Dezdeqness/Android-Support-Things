@@ -68,7 +68,7 @@ fun SearchTextField(
         onValueChange = {
             state.updateQuery(it)
         },
-        placeholder = if (state.editTextFocused) {
+        placeholder = if (state.query.isBlank()) {
             placeholder
         } else {
             null
@@ -118,8 +118,7 @@ class SearchState(
         val Saver: Saver<SearchState, *> = listSaver(
             save = { listOf(it.query, it.hasUserInteracted, it.editTextFocused) },
             restore = {
-                SearchState().apply {
-                    query = it[0] as String
+                SearchState(initialQuery = it[0] as String).apply {
                     hasUserInteracted = it[1] as Boolean
                     editTextFocused = it[2] as Boolean
                 }

@@ -31,6 +31,7 @@ fun AppChip(
         onClick = {
             onClick?.invoke()
         },
+        enabled = onClick != null,
         label = {
             Text(
                 title,
