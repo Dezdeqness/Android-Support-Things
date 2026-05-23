@@ -27,6 +27,8 @@ fun lightColors(): AppColors = AppColors(
     successColor = LightColors.Success,
     warningColor = LightColors.Warning,
     accentColor = LightColors.Accent,
+    whiteColor = LightColors.White,
+    blackColor = LightColors.Black,
 )
 
 fun darkColors(): AppColors = AppColors(
@@ -49,6 +51,8 @@ fun darkColors(): AppColors = AppColors(
     successColor = DarkColors.Success,
     warningColor = DarkColors.Warning,
     accentColor = DarkColors.Accent,
+    whiteColor = DarkColors.White,
+    blackColor = DarkColors.Black,
 )
 
 @Immutable
@@ -72,6 +76,8 @@ class AppColors(
     private val successColor: Color,
     private val warningColor: Color,
     private val accentColor: Color,
+    private val whiteColor: Color = Color.White,
+    private val blackColor: Color = Color.Black,
 ) {
 
     var primary by mutableStateOf(primaryColor)
@@ -112,6 +118,10 @@ class AppColors(
         private set
     var accent by mutableStateOf(accentColor)
         private set
+    var white by mutableStateOf(whiteColor)
+        private set
+    var black by mutableStateOf(blackColor)
+        private set
 
     fun updateColorsFrom(other: AppColors) {
         primary = other.primary
@@ -133,6 +143,8 @@ class AppColors(
         success = other.success
         warning = other.warning
         accent = other.accent
+        white = other.white
+        black = other.black
     }
 
     fun copy(
@@ -155,6 +167,8 @@ class AppColors(
         success: Color = this.success,
         warning: Color = this.warning,
         accent: Color = this.accent,
+        white: Color = this.white,
+        black: Color = this.black,
     ): AppColors = AppColors(
         primaryColor = primary,
         primaryVariantColor = primaryVariant,
@@ -175,6 +189,8 @@ class AppColors(
         onBackgroundColor = onBackground,
         onSurfaceColor = onSurface,
         accentColor = accent,
+        whiteColor = white,
+        blackColor = black,
     )
 }
 

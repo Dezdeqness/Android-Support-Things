@@ -2,66 +2,54 @@
 
 package com.dezdeqness.core.ui.theme
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.unit.dp
 
 object LightColors {
-    val Primary = Color(0xFFFF70A6)
-    val PrimaryVariant = Color(0xFFE75890)
-    val Secondary = Color(0xFF84E0CB)
-    val Background = Color(0xFFFFF9FC)
+    val Primary = Color(0xFF42A5F5)
+    val PrimaryVariant = Color(0xFF1E88E5)
+    val Secondary = Color(0xFF64D8CB)
+    val Background = Color(0xFFF5F9FF)
     val Surface = Color(0xFFFFFFFF)
-    val SurfaceVariant = Color(0xFFF2E8F5)
-    val Border = Color(0xFFE0E0E0)
+    val SurfaceVariant = Color(0xFFEAF2FB)
+    val Border = Color(0xFFD6E4F0)
     val OnPrimary = Color.White
-    val OnSecondary = Color(0xFF00332D)
-    val OnBackground = Color(0xFF1C1B1F)
-    val OnSurface = Color(0xFF313033)
-    val Error = Color(0xFFFF5C5C)
-    val Success = Color(0xFF58C186)
-    val Warning = Color(0xFFFFD25F)
-    val TextPrimary = Color(0xFF1C1B1F)
-    val TextSecondary = Color(0xFF5C5C66)
-    val TextDisabled = Color(0xFF9E9EA7)
-    val Ripple = Color(0x1F000000)
-    val Accent = Color(0xFFB48BFF)
+    val OnSecondary = Color(0xFF003733)
+    val OnBackground = Color(0xFF1A1C1E)
+    val OnSurface = Color(0xFF2A2E33)
+    val Error = Color(0xFFFF6B6B)
+    val Success = Color(0xFF4CAF50)
+    val Warning = Color(0xFFFFB74D)
+    val TextPrimary = Color(0xFF1A1C1E)
+    val TextSecondary = Color(0xFF5F6368)
+    val TextDisabled = Color(0xFF9AA0A6)
+    val Ripple = Color(0x14000000)
+    val Accent = Color(0xFF7C8CFF)
+    val White = white
+    val Black = black
 }
 
 object DarkColors {
-    val Primary = Color(0xFFFF9DCB)
-    val PrimaryVariant = Color(0xFFC6447F)
-    val Secondary = Color(0xFF66F8E3)
-    val Background = Color(0xFF121212)
-    val Surface = Color(0xFF1E1E1E)
-    val SurfaceVariant = Color(0xFF3B2F41)
-    val Border = Color(0xFF3D3D3D)
-    val OnPrimary = Color(0xFF1B141F)
-    val OnSecondary = Color(0xFF00221D)
-    val OnBackground = Color(0xFFE5E5E5)
-    val OnSurface = Color(0xFFCACACA)
+    val Primary = Color(0xFF90CAF9)
+    val PrimaryVariant = Color(0xFF42A5F5)
+    val Secondary = Color(0xFF4DD0C8)
+    val Background = Color(0xFF121417)
+    val Surface = Color(0xFF1B1F24)
+    val SurfaceVariant = Color(0xFF252A31)
+    val Border = Color(0xFF323843)
+    val OnPrimary = Color(0xFF0F1419)
+    val OnSecondary = Color(0xFF002E2A)
+    val OnBackground = Color(0xFFE3EAF2)
+    val OnSurface = Color(0xFFD1D9E0)
     val Error = Color(0xFFFF8A80)
-    val Success = Color(0xFF81D4A3)
-    val Warning = Color(0xFFFFCA69)
-    val TextPrimary = Color(0xFFEDEDED)
-    val TextSecondary = Color(0xFFA5A5AA)
-    val TextDisabled = Color(0xFF5E5E66)
-    val Ripple = Color(0x33FFFFFF)
-    val Accent = Color(0xFFD1B3FF)
+    val Success = Color(0xFF81C784)
+    val Warning = Color(0xFFFFCC80)
+    val TextPrimary = Color(0xFFE3EAF2)
+    val TextSecondary = Color(0xFFB0BEC5)
+    val TextDisabled = Color(0xFF6B7680)
+    val Ripple = Color(0x26FFFFFF)
+    val Accent = Color(0xFF8C9EFF)
+    val White = white
+    val Black = black
 }
 
 val red50 = Color(0xFFFFEBEE)
@@ -183,300 +171,3 @@ val gray900 = Color(0xFF212121)
 val black = Color(0xFF000000)
 val white = Color(0xFFFFFFFF)
 
-private val redPaletteList = listOf(
-    red50,
-    red100,
-    red200,
-    red300,
-    red400,
-    red500,
-    red600,
-    red700,
-    red800,
-    red900,
-    redA100,
-    redA200,
-    redA400,
-    redA700,
-)
-
-private val purplePaletteList = listOf(
-    purple50,
-    purple100,
-    purple200,
-    purple300,
-    purple400,
-    purple500,
-    purple600,
-    purple700,
-    purple800,
-    purple900,
-    purpleA100,
-    purpleA200,
-    purpleA400,
-    purpleA700,
-)
-
-private val deepPurplePaletteList = listOf(
-    deepPurple50,
-    deepPurple100,
-    deepPurple200,
-    deepPurple300,
-    deepPurple400,
-    deepPurple500,
-    deepPurple600,
-    deepPurple700,
-    deepPurple800,
-    deepPurple900,
-    deepPurpleA100,
-    deepPurpleA200,
-    deepPurpleA400,
-    deepPurpleA700,
-)
-
-private val bluePaletteList = listOf(
-    blue50,
-    blue100,
-    blue200,
-    blue300,
-    blue400,
-    blue500,
-    blue600,
-    blue700,
-    blue800,
-    blue900,
-    blueA100,
-    blueA200,
-    blueA400,
-    blueA700,
-)
-
-private val greenPaletteList = listOf(
-    green50,
-    green100,
-    green200,
-    green300,
-    green400,
-    green500,
-    green600,
-    green700,
-    green800,
-    green900,
-    greenA100,
-    greenA200,
-    greenA400,
-    greenA700,
-)
-
-private val yellowPaletteList = listOf(
-    yellow50,
-    yellow100,
-    yellow200,
-    yellow300,
-    yellow400,
-    yellow500,
-    yellow600,
-    yellow700,
-    yellow800,
-    yellow900,
-    yellowA100,
-    yellowA200,
-    yellowA400,
-    yellowA700,
-)
-
-private val orangePaletteList = listOf(
-    orange50,
-    orange100,
-    orange200,
-    orange300,
-    orange400,
-    orange500,
-    orange600,
-    orange700,
-    orange800,
-    orange900,
-    orangeA100,
-    orangeA200,
-    orangeA400,
-    orangeA700,
-)
-
-private val grayPaletteList = listOf(
-    gray50,
-    gray100,
-    gray200,
-    gray300,
-    gray400,
-    gray500,
-    gray600,
-    gray700,
-    gray800,
-    gray900,
-)
-
-@Composable
-private fun ColorsList(colors: List<Color>) {
-    Column {
-        colors.forEach {
-            ColorBox(it)
-        }
-    }
-}
-
-@Composable
-private fun ColorBox(color: Color) {
-    Box(
-        modifier = Modifier
-            .padding(12.dp)
-            .height(40.dp)
-            .width(100.dp)
-            .background(color = color, RoundedCornerShape(4.dp))
-    )
-}
-//
-//@Preview(name = "Red palette")
-//@Composable
-//fun PreviewRedPalette() {
-//    ColorsList(colors = redPaletteList)
-//}
-//
-//@Preview(name = "Purple palette")
-//@Composable
-//fun PreviewPurplePalette() {
-//    ColorsList(colors = purplePaletteList)
-//}
-//
-//@Preview(name = "Deep purple palette")
-//@Composable
-//fun PreviewDeepPurplePalette() {
-//    ColorsList(colors = deepPurplePaletteList)
-//}
-//
-//@Preview(name = "Blue palette")
-//@Composable
-//fun PreviewBluePalette() {
-//    ColorsList(colors = bluePaletteList)
-//}
-//
-//@Preview(name = "Green palette")
-//@Composable
-//fun PreviewGreenPalette() {
-//    ColorsList(colors = greenPaletteList)
-//}
-//
-//@Preview(name = "Yellow palette")
-//@Composable
-//fun PreviewYellowPalette() {
-//    ColorsList(colors = yellowPaletteList)
-//}
-//
-//@Preview(name = "Orange palette")
-//@Composable
-//fun PreviewOrangePalette() {
-//    ColorsList(colors = orangePaletteList)
-//}
-//
-//@Preview(name = "Gray palette")
-//@Composable
-//fun PreviewGrayPalette() {
-//    ColorsList(colors = grayPaletteList)
-//}
-//
-//@Preview(name = "Black&White palette")
-//@Composable
-//fun PreviewBlackAndWhitePalette() {
-//    ColorsList(
-//        colors = listOf(
-//            black,
-//            white,
-//        ),
-//    )
-//}
-
-data class NamedColor(val name: String, val color: Color)
-
-val lightColors = listOf(
-    NamedColor("Primary", LightColors.Primary),
-    NamedColor("PrimaryVariant", LightColors.PrimaryVariant),
-    NamedColor("Secondary", LightColors.Secondary),
-    NamedColor("Background", LightColors.Background),
-    NamedColor("Surface", LightColors.Surface),
-    NamedColor("SurfaceVariant", LightColors.SurfaceVariant),
-    NamedColor("Border", LightColors.Border),
-    NamedColor("OnPrimary", LightColors.OnPrimary),
-    NamedColor("OnSecondary", LightColors.OnSecondary),
-    NamedColor("OnBackground", LightColors.OnBackground),
-    NamedColor("OnSurface", LightColors.OnSurface),
-    NamedColor("Error", LightColors.Error),
-    NamedColor("Success", LightColors.Success),
-    NamedColor("Warning", LightColors.Warning),
-    NamedColor("TextPrimary", LightColors.TextPrimary),
-    NamedColor("TextSecondary", LightColors.TextSecondary),
-    NamedColor("TextDisabled", LightColors.TextDisabled),
-    NamedColor("Ripple", LightColors.Ripple),
-    NamedColor("Accent", LightColors.Accent),
-)
-
-val darkColors = listOf(
-    NamedColor("Primary", DarkColors.Primary),
-    NamedColor("PrimaryVariant", DarkColors.PrimaryVariant),
-    NamedColor("Secondary", DarkColors.Secondary),
-    NamedColor("Background", DarkColors.Background),
-    NamedColor("Surface", DarkColors.Surface),
-    NamedColor("SurfaceVariant", DarkColors.SurfaceVariant),
-    NamedColor("Border", DarkColors.Border),
-    NamedColor("OnPrimary", DarkColors.OnPrimary),
-    NamedColor("OnSecondary", DarkColors.OnSecondary),
-    NamedColor("OnBackground", DarkColors.OnBackground),
-    NamedColor("OnSurface", DarkColors.OnSurface),
-    NamedColor("Error", DarkColors.Error),
-    NamedColor("Success", DarkColors.Success),
-    NamedColor("Warning", DarkColors.Warning),
-    NamedColor("TextPrimary", DarkColors.TextPrimary),
-    NamedColor("TextSecondary", DarkColors.TextSecondary),
-    NamedColor("TextDisabled", DarkColors.TextDisabled),
-    NamedColor("Ripple", DarkColors.Ripple),
-    NamedColor("Accent", DarkColors.Accent),
-)
-
-@Composable
-fun ColorListPreview(title: String, colors: List<NamedColor>) {
-    Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-        Text(text = title, style = MaterialTheme.typography.titleLarge)
-        Spacer(modifier = Modifier.height(8.dp))
-        colors.forEach { colorItem ->
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp)
-                    .height(48.dp)
-                    .background(colorItem.color),
-                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
-            ) {
-                Text(
-                    text = colorItem.name,
-                    modifier = Modifier.padding(start = 16.dp).weight(1f),
-                    color = if (colorItem.color.luminance() < 0.5f) Color.White else Color.Black
-                )
-                Text(
-                    text = "#${colorItem.color.value.toULong().toString(16).uppercase().take(8)}",
-                    modifier = Modifier.padding(end = 16.dp),
-                    color = if (colorItem.color.luminance() < 0.5f) Color.White else Color.Black
-                )
-            }
-        }
-    }
-}
-
-//@Preview(showBackground = true)
-//@Composable
-//fun LightAnimeColorsPreview() {
-//    ColorListPreview("Light Anime Colors", lightColors)
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun DarkAnimeColorsPreview() {
-//    ColorListPreview("Dark Anime Colors", darkColors)
-//}
