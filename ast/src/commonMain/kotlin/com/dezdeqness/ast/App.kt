@@ -451,7 +451,7 @@ fun App() {
 
     val isDarkTheme by viewBookState.getIsDarkTheme()
 
-    AppTheme(isDarkTheme = isDarkTheme) {
+    AppTheme(isDarkTheme = false) {
         ViewBook(
             viewBookState = viewBookState,
             isDarkTheme = isDarkTheme,

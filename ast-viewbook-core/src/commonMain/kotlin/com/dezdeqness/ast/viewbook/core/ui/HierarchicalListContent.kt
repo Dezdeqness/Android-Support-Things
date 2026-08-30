@@ -31,6 +31,7 @@ fun <T> HierarchicalListContent(
     selectedValue: T?,
     onValueSelected: (T) -> Unit,
     contentColor: Color = AppTheme.colors.background,
+    filterQuery: String = "",
 ) {
     var expandedFolders by remember { mutableStateOf(setOf<String>()) }
 
@@ -42,6 +43,9 @@ fun <T> HierarchicalListContent(
         }
     }
 
+    val isFiltering = filterQuery.isNotBlank()
+    val visibleItems = remember(items, filterQuery) { filterItems(items, filterQuery) }
+
     fun flattenItems(
         items: List<HierarchicalItem<T>>,
         level: Int = 0
@@ -49,14 +53,15 @@ fun <T> HierarchicalListContent(
         val result = mutableListOf<Pair<HierarchicalItem<T>, Int>>()
         items.forEach { item ->
             result.add(item to level)
-            if (item is HierarchicalItem.Folder && expandedFolders.contains(item.id)) {
+            val expanded = isFiltering || expandedFolders.contains(item.id)
+            if (item is HierarchicalItem.Folder && expanded) {
                 result.addAll(flattenItems(item.children, level + 1))
             }
         }
         return result
     }
 
-    val flatItems = flattenItems(items)
+    val flatItems = flattenItems(visibleItems)
 
     LazyColumn(
         modifier = Modifier.background(contentColor)
@@ -69,7 +74,8 @@ fun <T> HierarchicalListContent(
                     FolderRow(
                         folder = item,
                         level = level,
-                        isExpanded = expandedFolders.contains(item.id),
+                        isExpanded = isFiltering || expandedFolders.contains(item.id),
+                        count = countItems(item.children),
                         onToggle = { toggleFolder(item.id) }
                     )
                 }
@@ -92,6 +98,7 @@ private fun <T> FolderRow(
     folder: HierarchicalItem.Folder<T>,
     level: Int,
     isExpanded: Boolean,
+    count: Int,
     onToggle: () -> Unit,
 ) {
     Row(
@@ -121,9 +128,72 @@ private fun <T> FolderRow(
             text = folder.displayName,
             style = AppTheme.typography.bodyMedium,
             color = AppTheme.colors.textPrimary,
-            modifier = Modifier.padding(start = 12.dp)
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 12.dp)
         )
+
+        CountBadge(count = count)
     }
+}
+
+@Composable
+internal fun CountBadge(count: Int) {
+    Text(
+        text = count.toString(),
+        style = AppTheme.typography.labelSmall,
+        color = AppTheme.colors.textSecondary,
+        modifier = Modifier
+            .clip(RoundedCornerShape(6.dp))
+            .background(AppTheme.colors.surfaceVariant)
+            .padding(horizontal = 8.dp, vertical = 2.dp)
+    )
+}
+
+fun <T> countItems(items: List<HierarchicalItem<T>>): Int =
+    items.sumOf { item ->
+        when (item) {
+            is HierarchicalItem.Item -> 1
+            is HierarchicalItem.Folder -> countItems(item.children)
+        }
+    }
+
+fun <T> filterItems(
+    items: List<HierarchicalItem<T>>,
+    query: String,
+): List<HierarchicalItem<T>> {
+    if (query.isBlank()) return items
+    val q = query.trim()
+    return items.mapNotNull { item ->
+        when (item) {
+            is HierarchicalItem.Item ->
+                item.takeIf { it.displayName.contains(q, ignoreCase = true) }
+
+            is HierarchicalItem.Folder -> {
+                val children = filterItems(item.children, query)
+                if (children.isNotEmpty() || item.displayName.contains(q, ignoreCase = true)) {
+                    item.copy(children = children)
+                } else {
+                    null
+                }
+            }
+        }
+    }
+}
+
+fun <T> findPath(items: List<HierarchicalItem<T>>, target: T): List<String>? {
+    for (item in items) {
+        when (item) {
+            is HierarchicalItem.Item ->
+                if (item.value == target) return listOf(item.displayName)
+
+            is HierarchicalItem.Folder -> {
+                val childPath = findPath(item.children, target)
+                if (childPath != null) return listOf(item.displayName) + childPath
+            }
+        }
+    }
+    return null
 }
 
 @Composable

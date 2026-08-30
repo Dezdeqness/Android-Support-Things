@@ -61,6 +61,19 @@ fun ParametersList(
 
         HorizontalDivider()
 
+        ParametersContent(parameters = parameters)
+    }
+}
+
+@Composable
+fun ParametersContent(
+    parameters: List<ViewParameter>,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
         parameters.forEach { parameter ->
             when (parameter) {
                 is ViewParameter.BooleanParameter -> {
