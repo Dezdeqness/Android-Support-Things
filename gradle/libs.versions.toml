@@ -18,7 +18,7 @@ kotlin = "2.1.21"
 kotlinx-coroutines = "1.9.0"
 kotlinStdlib = "2.1.21"
 kotlinxSerializationJson = "1.7.3"
-kspVersion = "2.0.21-1.0.27"
+kspVersion = "2.1.21-2.0.1"
 composeBom = "2025.05.01"
 
 coil = "3.0.4"
@@ -46,6 +46,7 @@ kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-co
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
 
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "kspVersion" }
+ksp-symbol-processing-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "kspVersion" }
 
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 compose-material3 =  { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "material" }

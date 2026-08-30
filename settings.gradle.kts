@@ -26,3 +26,4 @@ include(":core")
 
 include(":ast")
 include(":ast-viewbook-core")
+include(":ast-viewbook-processor")
