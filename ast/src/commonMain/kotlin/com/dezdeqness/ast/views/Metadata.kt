@@ -1,3 +1,5 @@
+@file:Folder("Metadata")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.Arrangement
@@ -10,7 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.metadata.MetadataRow
 
@@ -40,6 +44,7 @@ private fun resolveMetaValueStyle(index: Int): TextStyle {
     }
 }
 
+@ViewCaseEntry(name = "Metadata Row")
 val metadataRowDefault = ViewCase(
     title = "metadataRowDefault",
     content = {
@@ -91,6 +96,7 @@ val metadataRowDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Metadata Row List")
 val metadataRowList = ViewCase(
     title = "metadataRowList",
     content = {

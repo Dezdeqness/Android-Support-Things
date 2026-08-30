@@ -1,3 +1,5 @@
+@file:Folder("Headers")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.width
@@ -9,7 +11,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.header.Header
@@ -29,6 +33,7 @@ private fun resolveHeaderStyle(index: Int): TextStyle {
     }
 }
 
+@ViewCaseEntry(name = "Header Default")
 val headerDefault = ViewCase(
     title = "headerDefault",
     content = {
@@ -98,6 +103,7 @@ val headerDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Header Icon Less")
 val headerIconLess = ViewCase(
     title = "headerIconLess",
     content = {
@@ -132,6 +138,7 @@ val headerIconLess = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Header Shaped")
 val headerShaped = ViewCase(
     title = "headerShaped",
     content = {

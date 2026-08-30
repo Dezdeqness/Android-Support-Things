@@ -1,3 +1,5 @@
+@file:Folder("Tiles")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.width
@@ -9,11 +11,14 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.tiles.AppTile
 
+@ViewCaseEntry(name = "Tile Default")
 val tileDefault = ViewCase(
     title = "tileDefault",
     content = {
@@ -93,6 +98,7 @@ val tileDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Tile Prefix")
 val tilePrefix = ViewCase(
     title = "tilePrefix",
     content = {
@@ -136,6 +142,7 @@ val tilePrefix = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Tile Suffix")
 val tileSuffix = ViewCase(
     title = "tileSuffix",
     content = {
@@ -179,6 +186,7 @@ val tileSuffix = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Tile Full")
 val tileFull = ViewCase(
     title = "tileFull",
     content = {
@@ -230,6 +238,7 @@ val tileFull = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Tile No Shape")
 val tileNoShape = ViewCase(
     title = "tileNoShape",
     content = {

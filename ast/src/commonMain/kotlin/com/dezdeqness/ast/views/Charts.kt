@@ -1,3 +1,5 @@
+@file:Folder("Charts")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.width
@@ -5,7 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.charts.ChartSegment
@@ -22,6 +26,7 @@ private val barColors = listOf(
     Color(0xFFFF9800),
 )
 
+@ViewCaseEntry(name = "Diagram Chart")
 val diagramChartDefault = ViewCase(
     title = "diagramChartDefault",
     content = {
@@ -111,6 +116,7 @@ val diagramChartDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Horizontal Chart")
 val horizontalChartDefault = ViewCase(
     title = "horizontalChartDefault",
     content = {

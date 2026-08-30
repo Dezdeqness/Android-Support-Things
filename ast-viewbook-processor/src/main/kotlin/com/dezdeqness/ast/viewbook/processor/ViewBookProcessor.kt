@@ -43,9 +43,15 @@ class ViewBookProcessor(
             val name = (annotation.arg("name") as? String)
                 ?.takeIf { it.isNotBlank() }
                 ?: property.simpleName.asString().prettify()
-            val path = (annotation.arg("path") as? List<*>).orEmpty().filterIsInstance<String>()
 
-            Entry(qualified = qualified, name = name, path = path)
+            val folderPath = property.containingFile?.annotations
+                ?.firstOrNull { it.shortName.asString() == "Folder" }
+                ?.let { it.arg("path") as? List<*> }
+                .orEmpty().filterIsInstance<String>()
+            val entryPath =
+                (annotation.arg("path") as? List<*>).orEmpty().filterIsInstance<String>()
+
+            Entry(qualified = qualified, name = name, path = folderPath + entryPath)
         }
 
         val roots = mutableListOf<Node>()

@@ -1,3 +1,5 @@
+@file:Folder("States")
+
 package com.dezdeqness.ast.views
 
 import `android support things`.ast.generated.resources.Res
@@ -9,13 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.state.StateButtonConfig
 import com.dezdeqness.core.ui.views.state.StateButtonStyle
 import com.dezdeqness.core.ui.views.state.StateView
 import org.jetbrains.compose.resources.painterResource
 
+@ViewCaseEntry(name = "Error state")
 val errorStateDefault = ViewCase(
     title = "errorStateDefault",
     content = {
@@ -101,6 +106,7 @@ val errorStateDefault = ViewCase(
     },
 )
 
+@ViewCaseEntry(name = "Empty state")
 val emptyStateDefault = ViewCase(
     title = "emptyStateDefault",
     content = {

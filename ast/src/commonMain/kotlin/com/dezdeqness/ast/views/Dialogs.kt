@@ -1,3 +1,5 @@
+@file:Folder("Dialogs")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.width
@@ -11,7 +13,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.bottomsheet.SingleChoiceBottomSheet
 import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
@@ -19,6 +23,7 @@ import com.dezdeqness.core.ui.views.dialogs.MultiSelectDialog
 import com.dezdeqness.core.ui.views.dialogs.SingleChoiceDialog
 import kotlinx.coroutines.launch
 
+@ViewCaseEntry(name = "Single Choice Dialog Default", path = ["Single Choice Dialog"])
 val singleChoiceDialogDefault = ViewCase(
     title = "singleChoiceDialogDefault",
     content = {
@@ -94,6 +99,7 @@ val singleChoiceDialogDefault = ViewCase(
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
+@ViewCaseEntry(name = "Single Choice Bottom Sheet Default", path = ["Single Choice Bottom Sheet"])
 val singleChoiceBottomSheetDefault = ViewCase(
     title = "singleChoiceBottomSheetDefault",
     content = {
@@ -169,6 +175,7 @@ val singleChoiceBottomSheetDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Single Choice Dialog Header Less", path = ["Single Choice Dialog"])
 val singleChoiceDialogHeaderLess = ViewCase(
     title = "singleChoiceDialogHeaderLess",
     content = {
@@ -229,6 +236,7 @@ val singleChoiceDialogHeaderLess = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Multi Select Dialog")
 val multiSelectDialogDefault = ViewCase(
     title = "multiSelectDialogDefault",
     content = {
@@ -292,6 +300,10 @@ val multiSelectDialogDefault = ViewCase(
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
+@ViewCaseEntry(
+    name = "Single Choice Bottom Sheet Header Less",
+    path = ["Single Choice Bottom Sheet"]
+)
 val singleChoiceBottomSheetHeaderLess = ViewCase(
     title = "singleChoiceBottomSheetHeaderLess",
     content = {

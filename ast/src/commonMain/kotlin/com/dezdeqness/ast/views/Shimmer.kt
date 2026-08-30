@@ -1,3 +1,5 @@
+@file:Folder("Shimmer")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.horizontalScroll
@@ -12,11 +14,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.rememberShimmerOffset
 import com.dezdeqness.core.ui.views.shimmer
 
+@ViewCaseEntry(name = "Shimmer Default")
 val shimmerDefault = ViewCase(
     title = "shimmerDefault",
     content = {
@@ -92,6 +97,7 @@ val shimmerDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Shimmer One Wave")
 val shimmerOneWave = ViewCase(
     title = "shimmerOneWave",
     content = {

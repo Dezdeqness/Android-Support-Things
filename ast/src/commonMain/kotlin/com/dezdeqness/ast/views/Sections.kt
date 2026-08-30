@@ -1,3 +1,5 @@
+@file:Folder("Settings")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.background
@@ -12,11 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.header.Header
 import com.dezdeqness.core.ui.views.sections.AppSections
 
+@ViewCaseEntry(name = "App Section Default")
 val appSectionDefault = ViewCase(
     title = "appSectionDefault",
     content = {

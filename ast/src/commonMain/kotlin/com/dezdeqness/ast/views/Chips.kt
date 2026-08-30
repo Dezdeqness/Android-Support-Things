@@ -1,10 +1,15 @@
+@file:Folder("Buttons")
+
 package com.dezdeqness.ast.views
 
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.chips.AppChip
 
+@ViewCaseEntry(name = "Chip Default")
 val chipDefault = ViewCase(
     title = "chipDefault",
     content = {

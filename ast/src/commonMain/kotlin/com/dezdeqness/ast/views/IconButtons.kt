@@ -1,3 +1,5 @@
+@file:Folder("Buttons")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -6,13 +8,16 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.buttons.AppIconButton
 import com.dezdeqness.core.ui.views.buttons.AppIconFilledButton
 import com.dezdeqness.core.ui.views.buttons.AppIconOutlinedButton
 
+@ViewCaseEntry(name = "Icon Button Default")
 val iconButtonDefault = ViewCase(
     title = "iconButtonDefault",
     content = {
@@ -88,6 +93,7 @@ val iconButtonDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Icon Filled Button Default")
 val iconFilledButtonDefault = ViewCase(
     title = "iconFilledButtonDefault",
     content = {
@@ -133,6 +139,7 @@ val iconFilledButtonDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Icon Outlined Button Default")
 val iconOutlinedButtonDefault = ViewCase(
     title = "iconOutlinedButtonDefault",
     content = {

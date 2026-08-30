@@ -1,3 +1,5 @@
+@file:Folder("Buttons")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -7,7 +9,9 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Icon
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.views.buttons.AppAccentButton
 import com.dezdeqness.core.ui.views.buttons.AppErrorButton
@@ -15,6 +19,7 @@ import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
 import com.dezdeqness.core.ui.views.buttons.AppSecondaryButton
 import com.dezdeqness.core.ui.views.buttons.AppTextButton
 
+@ViewCaseEntry(name = "Button Default")
 val buttonDefault = ViewCase(
     title = "buttonDefault",
     content = {
@@ -141,6 +146,7 @@ val buttonDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Button Outlined")
 val buttonOutlined = ViewCase(
     title = "buttonOutlined",
     content = {
@@ -191,6 +197,7 @@ val buttonOutlined = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Button Text")
 val buttonText = ViewCase(
     title = "buttonText",
     content = {

@@ -1,3 +1,5 @@
+@file:Folder("Layouts")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.background
@@ -17,13 +19,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.layouts.AdaptiveLayout
 import com.dezdeqness.core.ui.views.layouts.AdaptiveViewCollection
 import com.dezdeqness.core.ui.views.layouts.LocalLayoutType
 
+@ViewCaseEntry(name = "Adaptive Layout")
 val adaptiveLayoutDefault = ViewCase(
     title = "adaptiveLayoutDefault",
     content = {
@@ -84,6 +89,7 @@ private data class SampleItem(val id: Int, val title: String)
 
 private val sampleItems = (1..12).map { SampleItem(id = it, title = "Item $it") }
 
+@ViewCaseEntry(name = "Adaptive View Collection")
 val adaptiveViewCollectionDefault = ViewCase(
     title = "adaptiveViewCollectionDefault",
     content = {

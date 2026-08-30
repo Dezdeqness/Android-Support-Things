@@ -1,3 +1,5 @@
+@file:Folder("Settings")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.width
@@ -10,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.settings.HeaderSettingsView
@@ -18,6 +22,7 @@ import com.dezdeqness.core.ui.views.settings.ProgressSettingsView
 import com.dezdeqness.core.ui.views.settings.SwitchSettingsView
 import com.dezdeqness.core.ui.views.settings.TextSettingsView
 
+@ViewCaseEntry(name = "Text Settings Default", path = ["Text Settings"])
 val textSettingsDefault = ViewCase(
     title = "textSettingsDefault",
     content = {
@@ -92,6 +97,7 @@ val textSettingsDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Header Settings Default", path = ["Header Settings"])
 val headerSettingsDefault = ViewCase(
     title = "headerSettingsDefault",
     content = {
@@ -160,6 +166,7 @@ private fun parseHexColor(hex: String): androidx.compose.ui.graphics.Color {
     }
 }
 
+@ViewCaseEntry(name = "Switch Settings Default", path = ["Switch Settings"])
 val switchSettingsDefault = ViewCase(
     title = "switchSettingsDefault",
     content = {
@@ -227,6 +234,7 @@ val switchSettingsDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Progress Settings Default")
 val progressSettingsDefault = ViewCase(
     title = "progressSettingsDefault",
     content = {
@@ -255,6 +263,7 @@ val progressSettingsDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Text Settings Disabled", path = ["Text Settings"])
 val textSettingsDisabled = ViewCase(
     title = "textSettingsDisabled",
     content = {
@@ -281,6 +290,7 @@ val textSettingsDisabled = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Text Settings Prefix", path = ["Text Settings"])
 val textSettingsPrefix = ViewCase(
     title = "textSettingsPrefix",
     content = {
@@ -314,6 +324,7 @@ val textSettingsPrefix = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Text Settings Suffix", path = ["Text Settings"])
 val textSettingsSuffix = ViewCase(
     title = "textSettingsSuffix",
     content = {
@@ -347,6 +358,7 @@ val textSettingsSuffix = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Text Settings Full", path = ["Text Settings"])
 val textSettingsFull = ViewCase(
     title = "textSettingsFull",
     content = {
@@ -395,6 +407,7 @@ val textSettingsFull = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Header Settings Color", path = ["Header Settings"])
 val headerSettingsColor = ViewCase(
     title = "headerSettingsColor",
     content = {
@@ -426,6 +439,7 @@ val headerSettingsColor = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Switch Settings Disabled", path = ["Switch Settings"])
 val switchSettingsDisabled = ViewCase(
     title = "switchSettingsDisabled",
     content = {
@@ -462,6 +476,7 @@ val switchSettingsDisabled = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Switch Settings Full", path = ["Switch Settings"])
 val switchSettingsFull = ViewCase(
     title = "switchSettingsFull",
     content = {

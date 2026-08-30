@@ -1,12 +1,17 @@
+@file:Folder("Loading")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.loading.AnimatedLoadingBars
 
+@ViewCaseEntry(name = "Animated Loading Bars")
 val animatedLoadingBarsDefault = ViewCase(
     title = "animatedLoadingBarsDefault",
     content = {

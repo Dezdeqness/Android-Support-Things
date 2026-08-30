@@ -1,8 +1,8 @@
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -21,11 +21,16 @@ kotlin {
         }
 
         val desktopMain by getting {
+            kotlin.srcDir("build/generated/ksp/desktop/desktopMain/kotlin")
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
         }
     }
+}
+
+dependencies {
+    add("kspDesktop", project(":ast-viewbook-processor"))
 }
 
 compose.desktop {

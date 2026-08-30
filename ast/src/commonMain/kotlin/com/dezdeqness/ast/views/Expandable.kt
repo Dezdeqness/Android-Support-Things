@@ -1,3 +1,5 @@
+@file:Folder("Expandable")
+
 package com.dezdeqness.ast.views
 
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.dezdeqness.ast.viewbook.core.ui.rememberViewCaseState
+import com.dezdeqness.ast.viewbook.core.viewcase.Folder
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewCase
+import com.dezdeqness.ast.viewbook.core.viewcase.ViewCaseEntry
 import com.dezdeqness.ast.viewbook.core.viewcase.ViewParameter
 import com.dezdeqness.core.ui.theme.AppTheme
 import com.dezdeqness.core.ui.views.buttons.AppPrimaryButton
@@ -47,6 +51,7 @@ private const val SAMPLE_TEXT =
             "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. " +
             "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra."
 
+@ViewCaseEntry(name = "Expandable Content")
 val expandableContentDefault = ViewCase(
     title = "expandableContentDefault",
     content = {
@@ -97,6 +102,7 @@ val expandableContentDefault = ViewCase(
     }
 )
 
+@ViewCaseEntry(name = "Expandable Text")
 val expandableTextDefault = ViewCase(
     title = "expandableTextDefault",
     content = {
