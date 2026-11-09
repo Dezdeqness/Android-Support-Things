@@ -23,7 +23,7 @@ composeBom = "2025.05.01"
 
 coil = "3.0.4"
 material = "1.8.1"
-
+datastoreVersion = "1.1.7"
 jetbrainsKotlinJvm = "2.0.21"
 
 materialIconsCore = "1.7.3"
@@ -49,6 +49,8 @@ ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devto
 ksp-symbol-processing-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "kspVersion" }
 
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "datastoreVersion" }
+datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastoreVersion" }
 compose-material3 =  { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "material" }
 
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose-core", version.ref = "coil" }

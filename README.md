@@ -7,6 +7,7 @@ Create common components that can be used across different apps
 
 - Theme wrapper
 - UI components
+- Settings infrastructure
 
 <h2>🛠️Tech stack</h2>
 
