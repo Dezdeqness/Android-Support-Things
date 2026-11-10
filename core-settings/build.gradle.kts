@@ -2,7 +2,7 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.dezdeqness.kmp.library)
+    alias(ast.plugins.dezdeqness.kmp.library)
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
@@ -17,8 +17,8 @@ android {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.datastore.core)
-            implementation(libs.datastore.preferences)
+            implementation(ast.datastore.core)
+            implementation(ast.datastore.preferences)
         }
     }
 }

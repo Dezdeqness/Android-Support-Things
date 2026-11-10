@@ -18,6 +18,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("libs") {
+            from(files("version-catalog/libs.versions.toml"))
+        }
+        create("ast") {
+            from(files("gradle/ast.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "Android Support Things"

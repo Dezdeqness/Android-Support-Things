@@ -10,8 +10,8 @@ class KMPLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply(libs.findPlugin("androidLibrary").get().get().pluginId)
-                apply(libs.findPlugin("kotlinMultiplatform").get().get().pluginId)
+                apply(libs.findPlugin("android-library").get().get().pluginId)
+                apply(libs.findPlugin("kotlin-multiplatform").get().get().pluginId)
             }
 
             configureKmp()
@@ -19,7 +19,7 @@ class KMPLibraryConventionPlugin : Plugin<Project> {
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
                 defaultConfig.targetSdk = libs
-                    .findVersion("android-targetSdk")
+                    .findVersion("android-target-sdk")
                     .get()
                     .requiredVersion.toInt()
             }

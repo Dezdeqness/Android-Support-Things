@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.jetbrains.kotlin.jvm)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 dependencies {
-    implementation(libs.ksp.symbol.processing.api)
+    implementation(ast.ksp.symbol.processing.api)
 }

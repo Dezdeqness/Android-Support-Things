@@ -2,7 +2,7 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.dezdeqness.kmp.library)
+    alias(ast.plugins.dezdeqness.kmp.library)
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 

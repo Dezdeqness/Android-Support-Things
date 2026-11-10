@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
 }
@@ -13,7 +13,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.compose.material3)
-            implementation(libs.material.icons.core)
+            implementation(ast.material.icons.core)
             implementation(compose.components.resources)
             implementation(libs.coil.compose)
             implementation(project(":core-ui"))

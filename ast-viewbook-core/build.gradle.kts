@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.dezdeqness.cmp.feature)
+    alias(ast.plugins.dezdeqness.cmp.feature)
 }
 
 android {
@@ -11,7 +11,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.compose.material3)
-            implementation(libs.material.icons.core)
+            implementation(ast.material.icons.core)
             implementation(libs.coil.compose)
             implementation(project(":core-ui"))
         }

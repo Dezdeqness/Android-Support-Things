@@ -1,0 +1,14 @@
+[versions]
+datastore = "1.1.7"
+materialIconsCore = "1.7.3"
+kspSymbolProcessing = "2.3.2"
+
+[libraries]
+datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastore" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "datastore" }
+material-icons-core = { module = "org.jetbrains.compose.material:material-icons-core", version.ref = "materialIconsCore" }
+ksp-symbol-processing-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "kspSymbolProcessing" }
+
+[plugins]
+dezdeqness-kmp-library = { id = "com.dezdeqness.kmp.library", version = "unspecified" }
+dezdeqness-cmp-feature = { id = "com.dezdeqness.cmp.feature", version = "unspecified" }

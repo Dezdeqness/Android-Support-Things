@@ -2,7 +2,7 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.dezdeqness.cmp.feature)
+    alias(ast.plugins.dezdeqness.cmp.feature)
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.compose.material3)
-            implementation(libs.material.icons.core)
+            implementation(ast.material.icons.core)
             implementation(libs.coil.compose)
         }
 
